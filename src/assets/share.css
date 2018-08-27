@@ -1,0 +1,67 @@
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin-top: 70px;
+}
+
+.upload-field .privacyCheckbox {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 1%;
+    float: left;
+    font-size: 120%;
+    overflow: auto;
+}
+
+.upload-field .control-label {
+    font-size: 150%;
+}
+
+.upload-field .form-group {
+    margin-bottom: 3%;
+}
+
+.privacyCheckbox {
+    margin-right: 15px;
+}
+
+input[type=radio] {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+input[type=radio]+span {
+    margin-left: 5px;
+}
+
+.carousel-inner{
+    width:100%;
+    max-height: 600px !important;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.form-group {
+    display: flex;
+}
+
+.form-group label {
+    margin: auto;
+}
+
+#submitBtn {
+    background-color: #cd162d;
+    color: white;
+    padding-left: 3%;
+    padding-right: 3%;
+    font-size: 120%;
+}
+
+
+
+
+
