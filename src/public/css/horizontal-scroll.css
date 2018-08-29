@@ -1,0 +1,232 @@
+
+
+/* Chrome, Safari */
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+.Horizontal-Scroll {
+  white-space: nowrap;
+  overflow-y: hidden;
+  display: block;
+  border-top-color: #555;
+  border-top-style: solid;
+  border-top-width: 2px;
+  /* border-bottom-color: #555;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  padding-bottom: 10%; */
+}
+
+.Horizontal-Scroll .item {
+  cursor: pointer !important;
+}
+
+.Horizontal-Scroll .item .body .content {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.Horizontal-Scroll .item .body .content .title:first-child {
+  padding: 1% 1% 0% 1%;
+  color: red;
+}
+
+.Horizontal-Scroll .item .body .content .title:nth-child(2n) {
+  padding: 0% 5% 1% 5% !important;
+  color: black;
+}
+
+.Scroll {
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .Scroll {
+    padding: 10px 10px 10px 10px;
+  }
+
+  p.Scroll-Header {
+    margin-left: 5px;
+    font-size: 8vw;
+    color: #cd162d;
+    font-weight: bolder;
+  }
+
+  .Horizontal-Scroll {
+    height: 100%;
+    padding: 4vh 1vh 4vh 1vh;
+  }
+
+  .Horizontal-Scroll .item {
+    /* background-color: #ddd; */
+    display: inline-block;
+    margin-right: 4vh;
+    padding: 3px;
+    height: 50vw;
+    width: 50%;
+    border: #cd162d 0.1vh solid;
+    border-radius: 3vw;
+  }
+
+  .Horizontal-Scroll .item .image {
+    display: block;
+    margin: auto;
+    height: 50%;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.2vw;
+    border-radius: 2vh;
+    object-fit: cover;
+  }
+
+  .Horizontal-Scroll .item .body .content {
+    padding: 2% 5% 2% 5%;
+    font-size: 3vw;
+    font-size-adjust: initial;
+  }
+
+  .Horizontal-Scroll .item .body .content .title {
+    padding: 2% 1% 1% 2%;
+    display: block;
+  }
+
+  .Horizontal-Scroll .item .body .content .title:first-child {
+    font-size: 2.5vw;
+  }
+
+  .Horizontal-Scroll .item .body .content .title:nth-child(2n) {
+  }
+
+  .Horizontal-Scroll>.item:last-child {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 768px) {
+
+  .Scroll {
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+
+  p.Scroll-Header {
+    margin-left: 5px;
+    font-size: 3.5vw;
+    color: #cd162d;
+    font-weight: bolder;
+  }
+
+  .Horizontal-Scroll {
+    min-width: 35vh;
+    height: auto;
+    padding: 1vh;
+  }
+
+  .Horizontal-Scroll .item {
+    /* background-color: #ddd; */
+    display: inline-block;
+    margin-right: 2vw;
+    height: 35vw;
+    width: 25vw;
+    border: #cd162d 0.1vh solid;
+    border-radius: 2vw;
+  }
+
+  .Horizontal-Scroll .item .image {
+    display: block;
+    margin: auto;
+    height: 50%;
+    width: 100%;
+    max-width: 100%;
+    padding: 1vw;
+    border-radius: 2vw;
+    object-fit: cover;
+  }
+
+  .Horizontal-Scroll .item .body .content {
+    padding: 2% 5% 2% 5%;
+    font-size: 2vw;
+    font-size-adjust: initial;
+  }
+
+  .Horizontal-Scroll .item .body .content .title {
+    padding: 2% 1% 1% 2%;
+    display: block;
+  }
+
+  .Horizontal-Scroll .item .body .content .title:first-child {
+    font-size: 1.5vw;
+  }
+
+  .Horizontal-Scroll .item .body .content .title:nth-child(2n) {
+  }
+
+  .Horizontal-Scroll>.item:last-child {
+    margin-right: 0;
+  }
+}
+
+@media (min-width: 1200px) {
+  .Scroll {
+    padding-top: 15px;
+    padding-bottom: 10px
+  }
+
+  p.Scroll-Header {
+    margin-left: 5px;
+    font-size: 2vw;
+    color: #cd162d;
+    font-weight: bolder;
+  }
+
+  .Horizontal-Scroll {
+    min-width: 35vh;
+    height: auto;
+    padding: 1vh;
+  }
+
+  .Horizontal-Scroll .item {
+    /* background-color: #ddd; */
+    display: inline-block;
+    margin-right: 3vw;
+    height: 20vw;
+    width: 15vw;
+    border: #cd162d 0.1vw solid;
+    border-radius: 0.5vw;
+  }
+
+  .Horizontal-Scroll .item .image {
+    display: block;
+    margin: auto;
+    height: 60%;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.2vw;
+    border-radius: 1vw;
+    object-fit: cover;
+  }
+
+  .Horizontal-Scroll .item .body .content {
+    padding: 2% 5% 2% 5%;
+    font-size: 1vw;
+    font-size-adjust: initial;
+  }
+
+  .Horizontal-Scroll .item .body .content .title {
+    display: block;
+  }
+
+  .Horizontal-Scroll .item .body .content .title:first-child {
+    font-size: 0.8vw;
+  }
+
+  .Horizontal-Scroll .item .body .content .title:nth-child(2n) {
+  }
+
+  .Horizontal-Scroll>.item:last-child {
+    margin-right: 0;
+  }
+
+}

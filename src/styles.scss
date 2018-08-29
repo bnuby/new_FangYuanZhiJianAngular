@@ -1,0 +1,16 @@
+// body {
+//   margin-top: 100px;
+// }
+
+.privacy-checkbox {
+  display: inline;
+  &+.privacy-checkbox:not(:first-child) {
+    margin-left: 5vw;
+  }
+}
+
+.form-group {
+  & * {
+    margin: auto;
+  }
+}

@@ -21,26 +21,25 @@
             "assets": [
               "src/favicon.ico",
               "src/assets",
-	      "src/assets/*"
+              "src/assets/*"
             ],
             "styles": [
               "src/styles.css",
               "src/styles.scss",
+              "src/public/css/horizontal-scroll.css",
               "src/assets/glyphicons/scss/glyphicons-halflings.scss"
             ],
             "scripts": [
-		"./node_modules/jquery/dist/jquery.min.js",
-		"./node_modules/bootstrap/dist/js/bootstrap.min.js"
-	    ]
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ],
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.prod.ts"
+              }],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,

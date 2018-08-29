@@ -1,0 +1,42 @@
+html, body {
+  height: 100%;
+  width: 100%;
+}
+
+.modelInfo {
+  margin-top: 40px;
+}
+
+.modelInfo img{
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.modelDetails {
+  margin-top: 20px;
+}
+
+.modelDetails h5 {
+  margin-bottom: 20px;
+}
+
+.line{
+  height: 1px;
+  border-bottom: 0.1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+#toolbar {
+  display: inline-block;
+}
+
+#toolbar button {
+  margin-left: 5px;
+}
+
+#commentSection {
+  margin-top: 3%;
+}

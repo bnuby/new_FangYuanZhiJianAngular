@@ -1,0 +1,41 @@
+<!-- Image, Star Rating, Share, Title -->
+<section class="modelInfo">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-8">
+        <div id="collectionImage">
+          <img>
+        </div>
+        <!-- Details -->
+        <section class="modelDetails">
+          <h5>
+            <a href="#" id="authorName"></a>
+          </h5>
+          <h3 id="collectionName"></h3>
+          <div class="line"></div>
+          <h4>Description</h4>
+          <h5 id="collectionDescription"></h5>
+          <div class="line"></div>
+          <div class="TagList">
+            <h4>Hashtag</h4>
+            <span class="hashtag" *ngFor="let hashtag of hashtags">
+              {{ hashtag }}
+            </span>
+            <span class="no-hashtag" *ngIf="hashtags.length == 0">
+              No Hashtags
+            </span>
+          </div>
+        </section>
+      </div>
+      <div id='side-panel' class="col-sm-4">
+        <div id="toolbar" *ngIf="checkUser()">
+          <button class="btn btn-warning glyphicon glyphicon-edit" (click)="editCollections()"></button>
+          <button class="btn btn-danger glyphicon glyphicon-trash" (click)="deleteCollectionAlert()"></button>
+        </div>
+        <h4>Comment</h4>
+        <div class="line"></div>
+        <div id="commentSection"></div>
+      </div>
+    </div>
+  </div>
+</section>
