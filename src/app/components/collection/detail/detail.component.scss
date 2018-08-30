@@ -1,25 +1,31 @@
+$mainColorRed: #cd162d;
+
 html, body {
   height: 100%;
   width: 100%;
 }
 
-.modelInfo {
-  margin-top: 40px;
-}
-
-.modelInfo img{
-  width: 100%;
-  max-width: 50vw;
-  max-height: 60vh;
-  margin-top: auto;
-  margin-bottom: auto;
+h4 {
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .modelDetails {
+  margin-top: 40px;
+}
+
+.modelDetails img{
+  width: 100%;
+  max-height: 60vh;
+  margin: 0% auto;
+  object-fit: cover;
+}
+
+.metaData {
   margin-top: 20px;
 }
 
-.modelDetails h5 {
+.metaData h5 {
   margin-bottom: 20px;
 }
 
@@ -27,11 +33,12 @@ html, body {
   height: 1px;
   border-bottom: 0.1px;
   background: rgba(0, 0, 0, 0.1);
-  margin-top: 1%;
-  margin-bottom: 1%;
+  margin-top: 10px;
+  margin-bottom: 5px;
 }
 
 #toolbar {
+  margin-top: 15px;
   display: inline-block;
 }
 
@@ -40,7 +47,7 @@ html, body {
 }
 
 #commentSection {
-  margin-top: 3%;
+  margin-top: 15px;
 }
 
 .TagList {
@@ -50,6 +57,7 @@ html, body {
     border: 1px solid red;
     border-radius: 10px;
     color: red;
+    font-size: 15px;
 
     &:hover {
       color: white;
@@ -60,4 +68,19 @@ html, body {
       content: "#";
     }
   }
+}
+
+#collectionName {
+  background: $mainColorRed;
+  color: white;
+  font-size: 30px;
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#authorName {
+  font-size: 20px;
+  color: blue;
+  text-decoration: none;
 }

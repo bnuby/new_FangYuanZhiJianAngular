@@ -1,40 +1,48 @@
 <!-- Image, Star Rating, Share, Title -->
-<section class="modelInfo">
-  <div class="container-fluid">
+<section class="modelDetails">
+  <div class="container">
     <div class="row">
-      <div class="col-sm-8">
+      <div class="col-sm-7">
         <div id="collectionImage">
           <img>
+          <div id="collectionName"></div>
         </div>
+        <div id="toolbar" *ngIf="checkUser()">
+          <button class="btn btn-Submit glyphicon glyphicon-plus" data-hover="tooltip" data-tooltip-content="AddModel" data-tooltip-delay="500" aria-describedby="en" (click)="addModel()"></button>
+          <button class="btn btn-warning glyphicon glyphicon-edit" data-hover="tooltip" data-tooltip-content="Edit" data-tooltip-delay="500" aria-describedby="en" (click)="editCollections()"></button>
+          <button class="btn btn-danger glyphicon glyphicon-trash" data-hover="tooltip" data-tooltip-content="Delete" data-tooltip-delay="500" aria-describedby="en" (click)="deleteCollectionAlert()"></button>
+        </div>
+        <div class="col" id="commentSection">
+          <h5>Comment</h5>
+          <div class="line"></div>
+        </div>
+      </div>
+      <div id='side-panel' class="col-sm-5">
         <!-- Details -->
-        <section class="modelDetails">
-          <h5>
-            <a href="#" id="authorName"></a>
-          </h5>
-          <h3 id="collectionName"></h3>
+        <section class="metaData">
+          <h4>Author</h4>
           <div class="line"></div>
+          <a href="#" id="authorName"></a>
           <h4>Description</h4>
-          <h5 id="collectionDescription"></h5>
           <div class="line"></div>
+          <div class="content" id="collectionDescription"></div>
           <div class="TagList">
             <h4>Hashtag</h4>
-            <span class="hashtag btn" (click)="searchTag(hashtag)" *ngFor="let hashtag of hashtags">
+            <div class="line"></div>
+            <span class="hashtag btn content" (click)="searchTag(hashtag)" *ngFor="let hashtag of hashtags">
               {{ hashtag }}
             </span>
             <span class="no-hashtag" *ngIf="hashtags.length == 0">
               No Hashtags
             </span>
           </div>
+          <h4>Release date</h4>
+          <div class="line"></div>
+          <div class="content" id="collectionCreateDate"></div>
+          <!-- <h4>Rating & Review</h4>
+          <div class="line"></div> -->
+          <!-- <div id="status"></div> -->
         </section>
-      </div>
-      <div id='side-panel' class="col-sm-4">
-        <div id="toolbar" *ngIf="checkUser()">
-          <button class="btn btn-warning glyphicon glyphicon-edit" data-hover="tooltip" data-tooltip-content="Edit" data-tooltip-delay="500" aria-describedby="en" (click)="editCollections()"></button>
-          <button class="btn btn-danger glyphicon glyphicon-trash" data-hover="tooltip" data-tooltip-content="Delete" data-tooltip-delay="500" aria-describedby="en" (click)="deleteCollectionAlert()"></button>
-        </div>
-        <h4>Comment</h4>
-        <div class="line"></div>
-        <div id="commentSection"></div>
       </div>
     </div>
   </div>

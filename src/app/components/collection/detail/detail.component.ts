@@ -53,6 +53,7 @@ export class DetailComponent implements OnInit {
         document.getElementById("collectionDescription").innerHTML =
           collection.description;
         document.getElementById("collectionName").innerHTML = collection.name;
+        document.getElementById("collectionCreateDate").innerHTML = collection.created_date.slice(0,10);
         $("#collectionImage img")[0].setAttribute(
           "src",
           `${host}/collections/images/${this.collection_id}`
