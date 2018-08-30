@@ -24,10 +24,12 @@
               "src/assets/*"
             ],
             "styles": [
+              "node_modules/bootstrap/scss/bootstrap.scss",
+              "src/assets/glyphicons/scss/glyphicons-halflings.scss",
               "src/styles.css",
               "src/styles.scss",
-              "src/public/css/horizontal-scroll.css",
-              "src/assets/glyphicons/scss/glyphicons-halflings.scss"
+              "src/public/css/toggle-switch.css",
+              "src/public/css/horizontal-scroll.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.min.js",

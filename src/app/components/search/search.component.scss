@@ -1,0 +1,84 @@
+@import "~bootstrap/scss/bootstrap.scss";
+
+.searchBar {
+  display: flex;
+  margin: bottom;
+
+  & * {
+    display: inline;
+    margin: auto 0px;
+    justify-content: space-between;
+  }
+
+  & label {
+    margin-right: 10px;
+  }
+}
+
+.toolbar {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#advanced-options {
+  & * {
+    margin: auto;
+    font-size: .85em;
+  }
+
+  & .content {
+    padding: 10px;
+  }
+
+  &>*:not(:last-child) {
+    margin-right: 2%;
+    margin-bottom: 0px;
+  }
+
+  .type-option {
+    .title {
+      font-size: 1.3em;
+      font-weight: bolder;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .searchBar {
+    .toolbar {
+      padding-top: 10px;
+    }
+  }
+
+  .switch.toggle {
+    padding-left: 0px;
+  }
+
+  .input {
+    & * {
+      margin-bottom: 10px;
+    }
+  }
+
+  #advanced-options {
+    .content {
+      & * {
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(sm) {
+
+  .advanced-options {
+    .content {
+      &>* {
+        display: block;
+      }
+    }
+  }
+}

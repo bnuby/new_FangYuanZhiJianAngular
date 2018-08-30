@@ -17,21 +17,37 @@ export class AppComponent implements OnInit {
     if (sessionStorage.getItem("isLogin") == null) {
       sessionStorage.setItem("isLogin", "false");
     }
+
     AppComponent.status = sessionStorage.getItem("isLogin") == "false" ? false : true;
 
-    console.log("status", AppComponent.status )
-    console.log("status type", typeof(AppComponent.status) )
+    router.events.subscribe((e) => {
+      $('#navbar-toggler[aria-expanded=true]').trigger('click')
+    })
+  }
+
+  ngOnInit() {
+
+    // calculate body margin on the first time
+    this.calculateBodyMargin()
+
+    this.documentReady()
+
+    // update body margin when window is resize
+    window.onresize = (e) => {
+      this.calculateBodyMargin()
+    }
+  }
+
+  documentReady() {
+    $('#nav-searchbar').submit((e) => {
+      e.preventDefault()
+      let searchText = $('#searchText').val()
+      this.router.navigate(['/search', searchText])
+    })
   }
 
   getStatus() {
     return AppComponent.status
-  }
-
-  ngOnInit() {
-    this.calculateBodyMargin()
-    window.onresize = (e) => {
-      this.calculateBodyMargin()
-    }
   }
 
   calculateBodyMargin() {

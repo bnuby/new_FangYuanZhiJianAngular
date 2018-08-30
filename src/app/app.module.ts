@@ -10,6 +10,7 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 import { DetailComponent } from 'src/app/components/collection/detail/detail.component';
 import { UserComponent } from 'src/app/components/user/user.component';
 import { EditComponent } from 'src/app/components/collection/edit/edit.component';
+import { SearchComponent } from 'src/app/components/search/search.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { EditComponent } from 'src/app/components/collection/edit/edit.component
     LoginComponent,
     DetailComponent,
     UserComponent,
-    EditComponent
+    EditComponent,
+    SearchComponent
    ],
   imports: [
     BrowserModule,
