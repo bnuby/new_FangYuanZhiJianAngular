@@ -40,7 +40,7 @@
         <div id='normal' class="Horizontal-Scroll">
           <div class='item' *ngFor='let collection of newestCollections' (click)='goToCollectionDetail(collection.id)'>
             <img class='image' [src]='collection.image_url'>
-            <div class='body'>
+            <div class=''>
               <div class='content'>
                 <span class='title'>Title: </span>
                 <span class='title'>{{ collection.name }}</span>
