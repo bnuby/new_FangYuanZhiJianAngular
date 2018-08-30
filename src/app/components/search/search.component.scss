@@ -31,15 +31,17 @@
     padding: 10px;
   }
 
-  &>*:not(:last-child) {
-    margin-right: 2%;
+  &>.content>*:not(:last-child) {
+    margin-right: 2vw;
     margin-bottom: 0px;
   }
 
   .type-option {
     .title {
-      font-size: 1.3em;
+      font-size: 1em;
+      color: #6e6e6e;
       font-weight: bolder;
+      margin-right: 1vw;
     }
   }
 }

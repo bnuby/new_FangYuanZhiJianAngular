@@ -26,12 +26,24 @@ export class SearchComponent implements OnInit, OnDestroy {
     this.documentReady()
 
     $('#nav-searchbar').hide()
+    $('.dropdown-menu').addClass('left')
 
     this.doSearch()
   }
 
   doSearch() {
     let searchText = this.route.snapshot.params.searchText
+    let isTag = this.route.snapshot.queryParams.isTag == "true" ? true : false
+    let tagOnly = this.route.snapshot.queryParams.tagOnly == "true" ? true : false
+
+    if(isTag) {
+      $('input[name=isTag]').attr('checked', true)
+    }
+
+    if (tagOnly) {
+      $('input[name=tagOnly]').attr('checked', true)
+    }
+
     $('#searchInput').val(searchText)
     $('.search-form').trigger('submit')
   }
@@ -98,6 +110,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     $('#nav-searchbar').show()
+    $('.dropdown-menu').removeClass('left')
   }
 
   goToCollectionDetail(collection_id) {

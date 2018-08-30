@@ -9,6 +9,8 @@ html, body {
 
 .modelInfo img{
   width: 100%;
+  max-width: 50vw;
+  max-height: 60vh;
   margin-top: auto;
   margin-bottom: auto;
 }
@@ -39,4 +41,23 @@ html, body {
 
 #commentSection {
   margin-top: 3%;
+}
+
+.TagList {
+  .hashtag {
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid red;
+    border-radius: 10px;
+    color: red;
+
+    &:hover {
+      color: white;
+      background-color: red;
+    }
+
+    &:before {
+      content: "#";
+    }
+  }
 }

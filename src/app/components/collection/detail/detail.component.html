@@ -18,7 +18,7 @@
           <div class="line"></div>
           <div class="TagList">
             <h4>Hashtag</h4>
-            <span class="hashtag" *ngFor="let hashtag of hashtags">
+            <span class="hashtag btn" (click)="searchTag(hashtag)" *ngFor="let hashtag of hashtags">
               {{ hashtag }}
             </span>
             <span class="no-hashtag" *ngIf="hashtags.length == 0">
@@ -29,8 +29,8 @@
       </div>
       <div id='side-panel' class="col-sm-4">
         <div id="toolbar" *ngIf="checkUser()">
-          <button class="btn btn-warning glyphicon glyphicon-edit" (click)="editCollections()"></button>
-          <button class="btn btn-danger glyphicon glyphicon-trash" (click)="deleteCollectionAlert()"></button>
+          <button class="btn btn-warning glyphicon glyphicon-edit" data-hover="tooltip" data-tooltip-content="Edit" data-tooltip-delay="500" aria-describedby="en" (click)="editCollections()"></button>
+          <button class="btn btn-danger glyphicon glyphicon-trash" data-hover="tooltip" data-tooltip-content="Delete" data-tooltip-delay="500" aria-describedby="en" (click)="deleteCollectionAlert()"></button>
         </div>
         <h4>Comment</h4>
         <div class="line"></div>

@@ -107,16 +107,20 @@ export class DetailComponent implements OnInit {
     });
   }
 
+  searchTag(value) {
+    this.router.navigate(['search', value], { queryParams: {isTag: true, tagOnly: true} })
+  }
+
   editCollections() {
     this.router.navigate(['/collection/edit'], {queryParams: {collection_id: this.collection_id}});
   }
 
   checkUser() {
-    console.log("id", sessionStorage.getItem("id"))
-    console.log("2", sessionStorage.getItem("2"))
-    console.log("isLogin", sessionStorage.getItem("isLogin"))
-    console.log("userID", this.user_id )
-    console.log("id", sessionStorage.getItem("id") )
+    // console.log("id", sessionStorage.getItem("id"))
+    // console.log("2", sessionStorage.getItem("2"))
+    // console.log("isLogin", sessionStorage.getItem("isLogin"))
+    // console.log("userID", this.user_id )
+    // console.log("id", sessionStorage.getItem("id") )
     if (this.user_id != null && sessionStorage.getItem("id") != null && this.user_id == sessionStorage.getItem("id")) {
       console.log(true)
       return true;

@@ -6,7 +6,7 @@ import * as $ from "jquery";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.css", "../assets/share.css"]
+  styleUrls: ["./app.component.scss", "../assets/share.css"]
 })
 export class AppComponent implements OnInit {
   title = "FangYuanZhiJian-angularWebApps";
