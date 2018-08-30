@@ -1,11 +1,24 @@
 <div class="container">
-  <div id="login-panel" class="col-xs-12 col-sm-6 col-lg-4">
-    <img id="login-img" src="assets/img/logo.png">
+  <img src="/assets/img/logo.png" id="logo">
+  <div id="login-panel" class="col-xs-12 col-sm-6 col-lg-4 mx-auto">
     <p id="profile-name" class="profile-name-card"></p>
-    <form id='signin-form' class="form-signin" method="POST" enctype="multipart/form-data">
-      <input type="text" id="inputUsername" class="form-control" placeholder="帳號" name="username" autocomplete="off" required autofocus>
-      <input type="password" id="inputPassword" class="form-control" placeholder="密碼" name="password" autocomplete="off" required>
-      <input type="submit" Value="Submit" class="btn btn-info" id="submitBtn">
+    <form id="signin-form" class="form-signin" method="POST" enctype="multipart/form-data">
+      <div class="form-group">
+          <label for="username">帳戶</label>
+          <input type="text" id="inputUsername" class="form-control" name="username" required="" autofocus="">
+      </div>
+      <div class="form-group">
+          <label for="password">密碼</label>
+          <input type="password" class="form-control" id="inputPassword" name="password" required="">
+      </div>
+      <div class="form-check">
+          <input type="checkbox" class="form-check-input" id="autoLogin">
+          <label class="form-check-label" for="autoLogin">記住我</label>
+      </div>
+      <input type="submit" value="登入" class="btn btn-info" id="submitBtn" style="background: #cd162d;">
     </form>
+  </div>
+  <div id="signupLabel">
+      <p>還沒有帳號嗎? <a href="#">點擊註冊</a></p>
   </div>
 </div>

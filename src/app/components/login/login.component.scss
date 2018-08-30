@@ -1,17 +1,22 @@
-.body {
-  background-color: red;
-  height: 1000px;
+#logo {
+  width: 200px;
+  height: 200px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 20vh;
+  margin-bottom: 5vh;
+  display: block;
 }
 
-#login-panel {
-  float: none;
-  margin: auto;
-}
-
-.form-signin * {
+.signin-form * {
   display: block;
   margin: auto;
-  margin-top: 2vw
+}
+
+#submitBtn {
+  width: 100%;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 #login-img {
@@ -22,4 +27,8 @@
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+
+#signupLabel {
+  text-align: center;
 }
