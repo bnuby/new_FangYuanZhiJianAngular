@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core'
 import { RouterModule, Routes } from '@angular/router'
 import { HomeComponent } from 'src/app/components/home/home.component'
 import { LoginComponent } from 'src/app/components/login/login.component'
+import { RegisterComponent } from 'src/app/components/register/register.component'
 import { UserComponent } from 'src/app/components/user/user.component'
 import { SearchComponent } from 'src/app/components/search/search.component';
 import { DetailComponent } from 'src/app/components/collection/detail/detail.component'
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
   { path: 'user', component: UserComponent, canActivate:[UserGuard] },
   { path: 'collection/detail', component: DetailComponent},
   { path: 'collection/edit', component: EditComponent, canActivate:[UserGuard]},
-  { path: 'search/:searchText', component: SearchComponent }
+  { path: 'search/:searchText', component: SearchComponent },
+  { path: 'register', component: RegisterComponent }
 ]
 
 @NgModule({
