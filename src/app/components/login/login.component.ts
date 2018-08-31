@@ -56,7 +56,8 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  registerAccount() {
-    this.router.navigate(['/register']);
+  registerAccount(e) {
+    console.log('event', e)
+    this.router.navigate(['register']);
   }
 }

@@ -12,11 +12,11 @@ import { UserGuard } from 'src/app/guards/user/user.guard'
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'user', component: UserComponent, canActivate:[UserGuard] },
   { path: 'collection/detail', component: DetailComponent},
   { path: 'collection/edit', component: EditComponent, canActivate:[UserGuard]},
-  { path: 'search/:searchText', component: SearchComponent },
-  { path: 'register', component: RegisterComponent }
+  { path: 'search/:searchText', component: SearchComponent }
 ]
 
 @NgModule({

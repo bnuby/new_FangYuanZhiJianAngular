@@ -1,7 +1,6 @@
 import * as $ from "jquery";
 import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
-import { AppComponent } from "src/app/app.component";
 
 @Component({
     selector: "app-register",
@@ -16,6 +15,6 @@ export class RegisterComponent implements OnInit {
     }
 
     documentReady() {
-        
+
     }
 }
