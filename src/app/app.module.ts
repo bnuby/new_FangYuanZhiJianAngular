@@ -11,6 +11,7 @@ import { DetailComponent } from 'src/app/components/collection/detail/detail.com
 import { UserComponent } from 'src/app/components/user/user.component';
 import { EditComponent } from 'src/app/components/collection/edit/edit.component';
 import { SearchComponent } from 'src/app/components/search/search.component';
+import { RegisterComponent } from 'src/app/components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { SearchComponent } from 'src/app/components/search/search.component';
     DetailComponent,
     UserComponent,
     EditComponent,
-    SearchComponent
+    SearchComponent,
+    RegisterComponent
    ],
   imports: [
     BrowserModule,
