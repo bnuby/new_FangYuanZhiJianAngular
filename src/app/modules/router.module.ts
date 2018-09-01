@@ -7,6 +7,7 @@ import { UserComponent } from 'src/app/components/user/user.component'
 import { SearchComponent } from 'src/app/components/search/search.component';
 import { DetailComponent } from 'src/app/components/collection/detail/detail.component'
 import { EditComponent } from 'src/app/components/collection/edit/edit.component'
+import { AddItemComponent } from 'src/app/components/collection/addItem/addItem.component'
 import { UserGuard } from 'src/app/guards/user/user.guard'
 
 const appRoutes: Routes = [
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   { path: 'user', component: UserComponent, canActivate:[UserGuard] },
   { path: 'collection/detail', component: DetailComponent},
   { path: 'collection/edit', component: EditComponent, canActivate:[UserGuard]},
+  { path: 'collection/addItem', component: AddItemComponent, canActivate:[UserGuard]},
   { path: 'search/:searchText', component: SearchComponent }
 ]
 

@@ -10,6 +10,7 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 import { DetailComponent } from 'src/app/components/collection/detail/detail.component';
 import { UserComponent } from 'src/app/components/user/user.component';
 import { EditComponent } from 'src/app/components/collection/edit/edit.component';
+import { AddItemComponent } from 'src/app/components/collection/addItem/addItem.component';
 import { SearchComponent } from 'src/app/components/search/search.component';
 import { RegisterComponent } from 'src/app/components/register/register.component';
 
@@ -21,6 +22,7 @@ import { RegisterComponent } from 'src/app/components/register/register.componen
     DetailComponent,
     UserComponent,
     EditComponent,
+    AddItemComponent,
     SearchComponent,
     RegisterComponent
    ],

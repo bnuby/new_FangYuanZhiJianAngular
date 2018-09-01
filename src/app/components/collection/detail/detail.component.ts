@@ -116,6 +116,10 @@ export class DetailComponent implements OnInit {
     this.router.navigate(['/collection/edit'], {queryParams: {collection_id: this.collection_id}});
   }
 
+  addModel() {
+    this.router.navigate(['/collection/addItem'], {queryParams: {collection_id: this.collection_id}});
+  }
+
   checkUser() {
     // console.log("id", sessionStorage.getItem("id"))
     // console.log("2", sessionStorage.getItem("2"))
