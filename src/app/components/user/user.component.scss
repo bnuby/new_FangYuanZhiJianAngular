@@ -4,14 +4,14 @@ html, body {
 }
 
 .userInfo {
-  // padding-top: 10px;
+  margin-top: 25px;
 }
 
 .userInfo #authorName {
   font-size: 150%;
 }
 
-.userInfo #profilePicture img {
+.userInfo #profilePicture {
   width: 100%;
   height: 100%;
 }
@@ -20,51 +20,64 @@ html, body {
   margin-top: 3%;
 }
 
-.nav-tabs li a {
+.nav-pills li a {
   font-size: 140%;
 }
 
-.nav-tabs a {
+.nav-link.active {
+  background: #cd162d;
+}
+
+a {
   color: #cd162d;
 }
 
+.nav-link.active {
+  color: white;
+}
+
 .tab-content {
-  margin-top: 2%;
-  margin-bottom: 4%;
+  margin-top: 2vh;
+  margin-bottom: 4vh;
 }
 
 .line{
   height: 1px;
-  border-bottom: 0.1px solid black;
-  margin-top: 3%;
-  margin-bottom: 3%;
+  border-bottom: 1px rgba(0, 0, 0, 0.1);
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-#dropdownBtnCategory {
-  font-size: 110%;
+.card {
+  border-width: 1px;
+  border-color: #cd162d;
 }
 
-.thumbnail {
-  padding: 0px;
-  border-radius: 8%;
-  border: none;
-  height: 250px;
-  width: 250px;
-  z-index: 1000;
+#update-field {
+  margin-top: 25px;
 }
 
-.thumbnail a img {
-  height: 250px;
-  width: 250px;
-  border-radius: 8%;
-  position: absolute;
-  object-fit: cover;
-  border: #555555 solid 1px;
+.control-label {
+  text-align: right;
+  vertical-align: text-top;
+  font-weight: 700;
 }
 
-.thumbnail a .caption {
-  border-radius: 0% 0% 8% 8%;
-  width: 100%;
-  position: relative;
-  background: rgba(255, 255, 255, 0.5);
+.form-group {
+  display: flex;
 }
+
+.form-group * {
+  margin: 5px;
+}
+
+#submitBtn {
+  float: right;
+  text-align: center;
+  background: #cd162d;
+  color: white;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 30px;
+}
+

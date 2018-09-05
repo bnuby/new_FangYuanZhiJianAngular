@@ -37,19 +37,16 @@
     <div class="row">
       <div class="Scroll">
         <p class="Scroll-Header">最新</p>
+        <div class="line"></div>
         <div id='normal' class="Horizontal-Scroll">
-          <div class='item' *ngFor='let collection of newestCollections' (click)='goToCollectionDetail(collection.id)'>
-            <img class='image' [src]='collection.image_url'>
-            <div class=''>
-              <div class='content'>
-                <span class='title'>Title: </span>
-                <span class='title'>{{ collection.name }}</span>
+          <div class='item card shadow bg-white rounded' *ngFor='let collection of newestCollections'>
+            <a (click)='goToCollectionDetail(collection.id)'>
+              <img class="card-img-top" [src]='collection.image_url'>
+              <div class="card-body">
+                <h5>{{ collection.name }}</h5>
+                <p>{{ collection.author }}<p>
               </div>
-              <div class='content'>
-                <span class='title'>Author: </span>
-                <span class='title'>{{ collection.author }}</span>
-              </div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -57,8 +54,19 @@
     <div class="row">
       <div class="Scroll">
         <p class="Scroll-Header">熱門下載</p>
+        <div class="line"></div>
         <div id='downloaded_count' class="Horizontal-Scroll">
-          <div class='item' *ngFor='let collection of mostDownloadCollections' (click)='goToCollectionDetail(collection.id)'>
+          <div class='item card shadow bg-white rounded' *ngFor='let collection of mostDownloadCollections'>
+            <a (click)='goToCollectionDetail(collection.id)'>
+              <img class="card-img-top" [src]='collection.image_url'>
+              <div class="card-body">
+                <h5>{{ collection.name }}</h5>
+                <p>{{ collection.author }}<p>
+              </div>
+            </a>
+          </div>
+        </div>
+          <!-- <div class='item' *ngFor='let collection of mostDownloadCollections' (click)='goToCollectionDetail(collection.id)'>
             <img class='image' [src]='collection.image_url'>
             <div class='body'>
               <div class='content'>
@@ -70,15 +78,25 @@
                 <span class='title'>{{ collection.author }}</span>
               </div>
             </div>
-          </div>
-        </div>
+          </div> -->
       </div>
     </div>
     <div class="row">
       <div class="Scroll">
         <p class="Scroll-Header">熱門點擊</p>
+        <div class="line"></div>
         <div id='visit_count' class="Horizontal-Scroll">
-          <div class='item' *ngFor='let collection of mostViewCollections' (click)='goToCollectionDetail(collection.id)'>
+          <div class='item card shadow bg-white rounded' *ngFor='let collection of mostViewCollections'>
+            <a (click)='goToCollectionDetail(collection.id)'>
+              <img class="card-img-top" [src]='collection.image_url'>
+              <div class="card-body">
+                <h5>{{ collection.name }}</h5>
+                <p>{{ collection.author }}<p>
+              </div>
+            </a>
+          </div>
+        </div>
+          <!-- <div class='item' *ngFor='let collection of mostViewCollections' (click)='goToCollectionDetail(collection.id)'>
             <img class='image' [src]='collection.image_url'>
             <div class='body'>
               <div class='content'>
@@ -90,8 +108,7 @@
                 <span class='title'>{{ collection.author }}</span>
               </div>
             </div>
-          </div>
-        </div>
+          </div> -->
       </div>
     </div>
   </div>

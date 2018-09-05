@@ -5,8 +5,8 @@ html, body {
   width: 100%;
 }
 
-h4 {
-  margin-top: 30px;
+h5 {
+  margin-top: 25px;
   margin-bottom: 10px;
 }
 
@@ -20,12 +20,12 @@ h4 {
 
 .modelDetails img{
   width: 100%;
-  max-height: 60vh;
+  max-height: 55vh;
   margin: 0% auto;
   object-fit: cover;
 }
 
-.metaData h5 {
+.metaData h6 {
   margin-bottom: 20px;
 }
 
@@ -73,10 +73,10 @@ h4 {
 #collectionName {
   background: $mainColorRed;
   color: white;
-  font-size: 30px;
+  font-size: 22px;
   padding-left: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 3px;
+  padding-bottom: 3px;
 }
 
 #authorName {

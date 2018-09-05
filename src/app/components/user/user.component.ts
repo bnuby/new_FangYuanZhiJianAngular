@@ -1,8 +1,8 @@
-import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
-import { host } from "src/app/services/server.service";
-import { Router } from "@angular/router";
+import { Component, OnInit, ChangeDetectorRef } from "@angular/core"
+import { host } from "src/app/services/server.service"
+import { Router } from "@angular/router"
 import swal from "sweetalert"
-import * as $ from "jquery";
+import * as $ from "jquery"
 
 @Component({
   selector: "app-user",
@@ -26,50 +26,56 @@ export class UserComponent implements OnInit {
     this.addNewModelRequest()
 
     $("#user-nav a").click(e => {
-      e.preventDefault();
-    });
+      e.preventDefault()
+    })
 
-    // $("#collectionOption").selectpicker();
-    // $("#collectionOption").empty();
-    // $("#collectionOption").selectpicker("refresh");
-    let id = sessionStorage.getItem("id");
+    // $("#collectionOption").selectpicker()
+    // $("#collectionOption").empty()
+    // $("#collectionOption").selectpicker("refresh")
+    let id = sessionStorage.getItem("id")
     this.user_id = id
-    createCollection(id);
-    console.log(id);
+    createCollection(id)
+    console.log(id)
     if (id != null) {
       $.ajax({
         type: "GET",
         dataType: "json",
         url: `${host}/users/collections/${id}`,
         success: (data) => {
-          let status = data.status;
-          let collections = data.msg;
+          let status = data.status
+          let collections = data.msg
           if (status) {
             collections.some(collection => {
               this.myCollections.push(collection)
-              // buildCollectionBox(collection);
-            });
+              // buildCollectionBox(collection)
+            })
           } else {
-            console.log(collections);
+            console.log(collections)
           }
         },
         failure: function() {
-          alert("Error Loading");
+          alert("Error Loading")
         }
-      });
+      })
 
       $.getJSON(`${host}/users/info/${id}`).done(data => {
-        let status = data.status;
-        let msg = data.msg;
-        console.log(data);
+        let status = data.status
+        let msg = data.msg
+        console.log(data)
         if (status) {
-          $("#name")[0].innerHTML = `${msg.first_name} ${msg.last_name}`;
+          $("#name")[0].innerHTML = `${msg.first_name} ${msg.last_name}`
+          console.log(msg.profile_picture)
+          if(msg.profile_picture == "") {
+            $('#profilePicture').attr('src', "../../../assets/img/logo.png")
+          } else {
+            $('#profilePicture').attr('src', `${host}/users/get_pic/${id}`)
+          }
         } else {
-          console.log(msg);
+          console.log(msg)
         }
-      });
+      })
     } else {
-      alert("You are not login");
+      alert("You are not login")
     }
     $('#type-selection').change((e) => {
       $('#model-upload').attr('disabled', false)
@@ -96,7 +102,7 @@ export class UserComponent implements OnInit {
   }
 
   goToCollectionDetail(collection_id) {
-    this.router.navigate(['/collection/detail'], { queryParams: {id: collection_id}});
+    this.router.navigate(['/collection/detail'], { queryParams: {id: collection_id}})
   }
 
   addNewModelRequest() {
@@ -143,11 +149,11 @@ export class UserComponent implements OnInit {
 }
 
 function buildCollectionBox(collection) {
-  var inner_html = "";
-  var name = collection.name;
-  var desciption = collection.item_ids.length;
-  var id = collection.id;
-  var privacy = collection.privacy;
+  var inner_html = ""
+  var name = collection.name
+  var desciption = collection.item_ids.length
+  var id = collection.id
+  var privacy = collection.privacy
   inner_html =
     inner_html +
     "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'>" +
@@ -156,17 +162,17 @@ function buildCollectionBox(collection) {
     "' target='_blank' id='collectionLink'>" +
     "<img src='http://kck.dvrdns.org:8181/collections/images/" + id +
     "'>" +
-    "<div class='caption'>";
+    "<div class='caption'>"
 
   if (privacy != 0) {
     inner_html =
       inner_html +
-      "<div class='course-name'><h4 style='text-align:left;'>" + name +
+      "<div class='course-name'><h4 style='text-align:left'>" + name +
       " " +
-      "<span class='glyphicon glyphicon-lock' style='float:right;'></span></h4></div>";
+      "<span class='glyphicon glyphicon-lock' style='float:right'></span></h4></div>"
   } else {
     inner_html =
-      inner_html + "<div class='course-name'><h4>" + name + "</h4></div>";
+      inner_html + "<div class='course-name'><h4>" + name + "</h4></div>"
   }
 
   inner_html =
@@ -177,21 +183,21 @@ function buildCollectionBox(collection) {
     "</div>" +
     "</a>" +
     "</div>" +
-    "</div>";
+    "</div>"
 
-  $("#myCollections").append(inner_html);
+  $("#myCollections").append(inner_html)
 }
 
 function createCollection(id) {
-  var key = sessionStorage.getItem("APIKey");
-  console.log(key);
-  var inner_html = "";
+  var key = sessionStorage.getItem("APIKey")
+  console.log(key)
+  var inner_html = ""
 
   inner_html =
     inner_html +
     `<input type="text" name="user_id" Value=${id} hidden=True>\
   <input type="text" name="author_id" Value="0" hidden=True>\
-  <input type="text" name="APIKey" Value=${key} hidden=True>`;
+  <input type="text" name="APIKey" Value=${key} hidden=True>`
 
-  $("#hidden_form").append(inner_html);
+  $("#hidden_form").append(inner_html)
 }

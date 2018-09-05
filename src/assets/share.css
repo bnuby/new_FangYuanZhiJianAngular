@@ -3,10 +3,6 @@ body {
     width: 100%;
 }
 
-body {
-    margin-top: 70px;
-}
-
 .upload-field .privacyCheckbox {
     display: inline-block;
     vertical-align: bottom;

@@ -1,11 +1,11 @@
 <!-- Image, Star Rating, Share, Title -->
 <section class="modelDetails">
-  <div class="container- fluid">
+  <div class="container">
     <div class="row">
       <div class="col-sm-8">
         <div id="collectionImage">
           <img>
-          <div id="collectionName"></div>
+          <div id="collectionName" class="mx-auto"></div>
         </div>
         <div id="toolbar" *ngIf="checkUser()">
           <button class="btn btn-Submit glyphicon glyphicon-plus" data-hover="tooltip" data-tooltip-content="AddModel" data-tooltip-delay="500" aria-describedby="en" (click)="addModel()" id="addBtn"></button>
@@ -13,21 +13,21 @@
           <button class="btn btn-danger glyphicon glyphicon-trash" data-hover="tooltip" data-tooltip-content="Delete" data-tooltip-delay="500" aria-describedby="en" (click)="deleteCollectionAlert()"></button>
         </div>
         <div class="col" id="commentSection">
-          <h5>Comment</h5>
+          <h6>Comment</h6>
           <div class="line"></div>
         </div>
       </div>
       <div id='side-panel' class="col-sm-4">
         <!-- Details -->
         <section class="metaData">
-          <h4>Author</h4>
+          <h5>Author</h5>
           <div class="line"></div>
           <a href="#" id="authorName"></a>
-          <h4>Description</h4>
+          <h5>Description</h5>
           <div class="line"></div>
           <div class="content" id="collectionDescription"></div>
           <div class="TagList">
-            <h4>Hashtag</h4>
+            <h5>Hashtag</h5>
             <div class="line"></div>
             <span class="hashtag btn content" (click)="searchTag(hashtag)" *ngFor="let hashtag of hashtags">
               {{ hashtag }}
@@ -36,7 +36,7 @@
               No Hashtags
             </span>
           </div>
-          <h4>Release date</h4>
+          <h5>Release date</h5>
           <div class="line"></div>
           <div class="content" id="collectionCreateDate"></div>
           <!-- <h4>Rating & Review</h4>
