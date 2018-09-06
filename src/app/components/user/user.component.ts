@@ -201,18 +201,28 @@ function createCollection(id) {
   $("#hidden_form").append(inner_html)
 }
 
-$('#createNewCollections').click(function() {
-  var data_string = $('#createNewCollection').serialize()
-  swal("test")
+$('#createNewCollection').submit((e) => {
+  e.preventDefault()
+  let formdata = new FormData($('#createNewCollection')[0])
   $.ajax({
-    type: "POST",
-    dataType: "json",
     url: `${host}/collections/`,
-    data: data_string,
-    success: function() {
+    method: 'post',
+    data: formdata,
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    cache: false,
+  }).done((data) => {
+    console.log(data)
+    let status = data.status
+    let msg = data.msg
+    console.log(msg)
+    if (status) {
       swal("Success Added!")
-    }, failure: function() {
-      swal("Failed!")
+    } else {
+      swal({
+        text: "fail"
+      })
     }
-  });
-});
+  })
+})

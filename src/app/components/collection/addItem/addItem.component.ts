@@ -13,7 +13,8 @@ export class AddItemComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) { }
 
   user_id = null
-  myCollectionsName = null
+  collectionName = null
+  collectionId = null
 
   ngOnInit() {
     var url_string = window.location.href;
@@ -26,6 +27,7 @@ export class AddItemComponent implements OnInit {
     
     let id = sessionStorage.getItem("id")
     this.user_id = id
+    this.collectionId = collection_id
     console.log(this.user_id)
     $.ajax({
       type: "GET",
@@ -35,8 +37,8 @@ export class AddItemComponent implements OnInit {
         let status = data.status
         let collections = data.msg
         if (status) {
-          this.myCollectionsName = collections.name
-          // console.log(myCollectionsName)
+          this.collectionName = collections.name
+          console.log(this.collectionName)
         } else {
           // console.log(collections)
         }
@@ -89,6 +91,7 @@ export class AddItemComponent implements OnInit {
         console.log(data)
         let status = data.status
         let msg = data.msg
+        console.log(msg)
         if (status) {
           swal("Success Added!")
         } else {

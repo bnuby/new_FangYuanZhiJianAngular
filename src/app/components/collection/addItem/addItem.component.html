@@ -1,6 +1,6 @@
 <div id="page-title" >
-  <div class="container" ng-controller="collectionName">
-    <h3>Add Model | {{ name }} </h3>
+  <div class="container">
+    <h3>{{ collectionName }} > Add Model</h3>
   </div>
 </div>
 <div class="container" id="body-content">
@@ -50,7 +50,8 @@
           autocomplete="off" required>
       </div>
     </div>
-    <input type="hidden" name="collection_id" [value]="collection_id">
+    <input type="hidden" name="collection_id" [value]="collectionId">
+    <input type="hidden" name="type" value="model">
     <div class="line"></div>
     <input type="submit" Value="submit" class="btn col-sm-2" id="submitBtn">
   </form>
