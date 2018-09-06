@@ -29,9 +29,6 @@ export class UserComponent implements OnInit {
       e.preventDefault()
     })
 
-    // $("#collectionOption").selectpicker()
-    // $("#collectionOption").empty()
-    // $("#collectionOption").selectpicker("refresh")
     let id = sessionStorage.getItem("id")
     this.user_id = id
     createCollection(id)
@@ -47,7 +44,6 @@ export class UserComponent implements OnInit {
           if (status) {
             collections.some(collection => {
               this.myCollections.push(collection)
-              // buildCollectionBox(collection)
             })
           } else {
             console.log(collections)
@@ -63,7 +59,7 @@ export class UserComponent implements OnInit {
         let msg = data.msg
         console.log(data)
         if (status) {
-          $("#name")[0].innerHTML = `${msg.first_name} ${msg.last_name}`
+          $("#name")[0].innerHTML = "Username: " + `${msg.first_name} ${msg.last_name}`
           console.log(msg.profile_picture)
           if(msg.profile_picture == "") {
             $('#profilePicture').attr('src', "../../../assets/img/logo.png")
@@ -146,47 +142,50 @@ export class UserComponent implements OnInit {
     return str
   }
 
+  // createNewCollection() {
+  //   
+  // }
 }
 
-function buildCollectionBox(collection) {
-  var inner_html = ""
-  var name = collection.name
-  var desciption = collection.item_ids.length
-  var id = collection.id
-  var privacy = collection.privacy
-  inner_html =
-    inner_html +
-    "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'>" +
-    "<div class='thumbnail'>" +
-    "<a href='./collectionDetails.html?id=" + id +
-    "' target='_blank' id='collectionLink'>" +
-    "<img src='http://kck.dvrdns.org:8181/collections/images/" + id +
-    "'>" +
-    "<div class='caption'>"
+// function buildCollectionBox(collection) {
+//   var inner_html = ""
+//   var name = collection.name
+//   var desciption = collection.item_ids.length
+//   var id = collection.id
+//   var privacy = collection.privacy
+//   inner_html =
+//     inner_html +
+//     "<div class='col-lg-3 col-md-4 col-sm-6 col-xs-12'>" +
+//     "<div class='thumbnail'>" +
+//     "<a href='./collectionDetails.html?id=" + id +
+//     "' target='_blank' id='collectionLink'>" +
+//     "<img src='http://kck.dvrdns.org:8181/collections/images/" + id +
+//     "'>" +
+//     "<div class='caption'>"
 
-  if (privacy != 0) {
-    inner_html =
-      inner_html +
-      "<div class='course-name'><h4 style='text-align:left'>" + name +
-      " " +
-      "<span class='glyphicon glyphicon-lock' style='float:right'></span></h4></div>"
-  } else {
-    inner_html =
-      inner_html + "<div class='course-name'><h4>" + name + "</h4></div>"
-  }
+//   if (privacy != 0) {
+//     inner_html =
+//       inner_html +
+//       "<div class='course-name'><h4 style='text-align:left'>" + name +
+//       " " +
+//       "<span class='glyphicon glyphicon-lock' style='float:right'></span></h4></div>"
+//   } else {
+//     inner_html =
+//       inner_html + "<div class='course-name'><h4>" + name + "</h4></div>"
+//   }
 
-  inner_html =
-    inner_html +
-    "<p>" +
-    desciption +
-    " 件模型<p>" +
-    "</div>" +
-    "</a>" +
-    "</div>" +
-    "</div>"
+//   inner_html =
+//     inner_html +
+//     "<p>" +
+//     desciption +
+//     " 件模型<p>" +
+//     "</div>" +
+//     "</a>" +
+//     "</div>" +
+//     "</div>"
 
-  $("#myCollections").append(inner_html)
-}
+//   $("#myCollections").append(inner_html)
+// }
 
 function createCollection(id) {
   var key = sessionStorage.getItem("APIKey")
@@ -201,3 +200,19 @@ function createCollection(id) {
 
   $("#hidden_form").append(inner_html)
 }
+
+$('#createNewCollections').click(function() {
+  var data_string = $('#createNewCollection').serialize()
+  swal("test")
+  $.ajax({
+    type: "POST",
+    dataType: "json",
+    url: `${host}/collections/`,
+    data: data_string,
+    success: function() {
+      swal("Success Added!")
+    }, failure: function() {
+      swal("Failed!")
+    }
+  });
+});
