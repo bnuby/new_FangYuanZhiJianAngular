@@ -3,6 +3,20 @@ html, body {
     height: 100%;
 }
 
+#page-title {
+    background: #0C82BC;
+
+    & h3 {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        color: white;
+    }
+}
+
+#body-content {
+    margin-top: 25px;
+}
+
 .control-label {
     text-align: right;
     vertical-align: text-top;
@@ -14,14 +28,10 @@ html, body {
 }
 
 .form-group * {
-    margin: 0;
+    margin: 5px;
 }
 
-#radio-privacy {
-
-}
-
-#line{
+.line{
     height: 1px;
     border-bottom: 0.1px;
     background: rgba(0, 0, 0, 0.3);

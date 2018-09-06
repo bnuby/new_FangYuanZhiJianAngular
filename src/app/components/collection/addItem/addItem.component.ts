@@ -12,12 +12,91 @@ export class AddItemComponent implements OnInit {
 
   constructor(private router: Router, private route: ActivatedRoute) { }
 
-  ngOnInit() {
-    // var url_string = window.location.href;
-    // var url = new URL(url_string);
-    // this.route.queryParams['collection_id']
-    let collection_id =  this.route.queryParams['collection_id']
+  user_id = null
+  myCollectionsName = null
 
+  ngOnInit() {
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    let collection_id = url.searchParams.get('collection_id')
+    this.documentReady(collection_id)
   }
 
+  documentReady(collection_id) {
+    
+    let id = sessionStorage.getItem("id")
+    this.user_id = id
+    console.log(this.user_id)
+    $.ajax({
+      type: "GET",
+      dataType: "json",
+      url: `${host}/collections/${collection_id}`,
+      success: (data) => {
+        let status = data.status
+        let collections = data.msg
+        if (status) {
+          this.myCollectionsName = collections.name
+          // console.log(myCollectionsName)
+        } else {
+          // console.log(collections)
+        }
+      },
+      failure: function() {
+        alert("Error Loading")
+      }
+    })
+
+    function collectionName($scope) {
+      $scope.name = this.myCollectionsName
+    }
+
+    // $('#model-form').submit((e) => {
+    //   e.preventDefault()
+    //   var data_string = $('#model-form').serialize()
+    //   let formData = new FormData($("#model-form")[0])
+    //   console.log($(data_string))
+      // $.ajax({
+      //   type: "POST",
+      //   dataType: "json",
+      //   url: `${host}/items/`,
+      //   success: (data) => {
+      //     let status = data.status
+      //     let collections = data.msg
+      //     if (status) {
+      //       this.myCollectionsName = collections.name
+      //       // console.log(myCollectionsName)
+      //     } else {
+      //       // console.log(collections)
+      //     }
+      //   },
+      //   failure: function() {
+      //     alert("Error Loading")
+      //   }
+      // })
+    // })
+    $('#model-form').submit((e) => {
+      e.preventDefault()
+      let formdata = new FormData($('#model-form')[0])
+      $.ajax({
+        url: `${host}/items/`,
+        method: 'post',
+        data: formdata,
+        processData: false,
+        contentType: false,
+        dataType: 'json',
+        cache: false,
+      }).done((data) => {
+        console.log(data)
+        let status = data.status
+        let msg = data.msg
+        if (status) {
+          swal("Success Added!")
+        } else {
+          swal({
+            text: "fail"
+          })
+        }
+      })
+    })
+  }
 }
