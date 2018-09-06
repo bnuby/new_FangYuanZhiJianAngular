@@ -1,94 +1,93 @@
 <div class="container">
-    <form class="form-horizontal upload-item-field" enctype="multipart/form-data">
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="modelTitle">Title</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="name" id="modelTitle" placeholder="What is the name of your model?">
-            </div>
-        </div>
-        
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="modelUpload">Model</label>
-            <div class="col-sm-10">
-                <input type="file" name="model" class="form-control-file" id="modelUpload" aria-describedby="fileHelp">
-                <small id="fileHelp" class="form-text text-muted">Tips location here</small>
-            </div>
-        </div>
-        <input type="text" name="type" Value="model" , hidden=True>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="modelDescription">Description</label>
-            <div class="col-sm-10">
-                <textarea class="form-control" name="description" id="modelDescription" rows="5" placeholder="Tell us about your collection."></textarea>
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="collectionHastag">Hashtags</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" name="tags" id="collectionHastag" placeholder="What is the name of your collection?">
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2" for="collectionOption">Collection</label>
-            <div class="col-sm-10">
-                <select class="selectpicker show-menu-arrow" name="collection_id" id="collectionOption" data-live-search="true">
-                </select>
-            </div>
-        </div>
-        <div class="line"></div>
-        <input type="submit" Value="Submit" class="btn" id="submitBtn">
-    </form>
-    <form class="form-horizontal" id="update-field" enctype="multipart/form-data">
-        <div class="form-group">
-        <label class="control-label col-sm-2" for="name">Title</label>
-        <div class="col-sm-10">
-            <input class="form-control" type="text" name="name" id="collectionName" autocomplete="off" aria-describedby="name">
-        </div>
-        </div>
+  <form class="form-horizontal upload-item-field" enctype="multipart/form-data">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="modelTitle">Title</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="name" id="modelTitle" placeholder="What is the name of your model?">
+      </div>
+    </div>
 
-        <div class="form-group">
-        <label class="control-label col-sm-2" for="type">Description</label>
-        <div class="col-sm-10">
-            <textarea class="form-control" name="description" id="collectionDescription" rows="5" placeholder="Tell us about your collection."></textarea>
-        </div>
-        </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="modelUpload">Model</label>
+      <div class="col-sm-10">
+        <input type="file" name="model" class="form-control-file" id="modelUpload" aria-describedby="fileHelp">
+        <small id="fileHelp" class="form-text text-muted">Tips location here</small>
+      </div>
+    </div>
+    <input type="text" name="type" Value="model" hidden=True>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="modelDescription">Description</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" name="description" id="modelDescription" rows="5" placeholder="Tell us about your collection."></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="collectionHastag">Hashtags</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="tags" id="collectionHastag" placeholder="What is the name of your collection?">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="collectionOption">Collection</label>
+      <div class="col-sm-10">
+        <select class="selectpicker show-menu-arrow" name="collection_id" id="collectionOption" data-live-search="true">
+        </select>
+      </div>
+    </div>
+    <div class="line"></div>
+    <input type="submit" Value="Submit" class="btn" id="submitBtn">
+  </form>
+  <form class="form-horizontal" id="update-field" enctype="multipart/form-data">
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Title</label>
+      <div class="col-sm-10">
+        <input class="form-control" type="text" name="name" id="collectionName" autocomplete="off" aria-describedby="name">
+      </div>
+    </div>
 
-        <div class="form-group">
-        <label class="control-label col-sm-2" for="privacy">Privacy</label>
-        <div class="col-sm-10">
-            <div id="radio-privacy">
-            <input type="radio" name="privacy" value="0" checked>
-            <span>Public</span>
-            <input type="radio" name="privacy" value="1">
-            <span>Private</span>
-            </div>
-        </div>
-        </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="type">Description</label>
+      <div class="col-sm-10">
+        <textarea class="form-control" name="description" id="collectionDescription" rows="5" placeholder="Tell us about your collection."></textarea>
+      </div>
+    </div>
 
-        <div class="form-group">
-        <label class="control-label col-sm-2" for="name">Category</label>
-        <div class="col-sm-10">
-            <select class="form-control" name="type" id="collectionCategory">
-            <option value="" selected disabled>Please select one of the category</option>
-            <option>Business</option>
-            <option>Entertainment</option>
-            <option>Design</option>
-            <option>Life</option>
-            <option>Education</option>
-            </select>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="privacy">Privacy</label>
+      <div class="col-sm-10">
+        <div id="radio-privacy">
+          <input type="radio" name="privacy" value="0" checked>
+          <span>Public</span>
+          <input type="radio" name="privacy" value="1">
+          <span>Private</span>
         </div>
-        </div>
+      </div>
+    </div>
 
-        <div class="form-group">
-        <label class="control-label col-sm-2" for="image">Thumbnail</label>
-        <div class="col-sm-10" style="display: flex;">
-            <img class="col-sm-5 d-inline" id='preview-image' style="height: 150px; object-fit: cover; border: 0.5px solid black; padding: 2px; margin-right: 20px;" src=""
-            alt="">
-            <input type="file" style="margin: auto 0" name="image" id="file" placeholder="image"
-            aria-describedby="image" accept=".png,.jpeg">
-        </div>
-        </div>
-        <div id="line"></div>
-        <input type="submit" Value="Submit" class="btn col-sm-2" id="submitBtn">
-    </form>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="name">Category</label>
+      <div class="col-sm-10">
+        <select class="form-control" name="type" id="collectionCategory">
+          <option value="" selected disabled>Please select one of the category</option>
+          <option>Business</option>
+          <option>Entertainment</option>
+          <option>Design</option>
+          <option>Life</option>
+          <option>Education</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="image">Thumbnail</label>
+      <div class="col-sm-10" style="display: flex;">
+        <img class="col-sm-5 d-inline" id='preview-image' style="height: 150px; object-fit: cover; border: 0.5px solid black; padding: 2px; margin-right: 20px;"
+          src="" alt="">
+        <input type="file" style="margin: auto 0" name="image" id="file" placeholder="image" aria-describedby="image"
+          accept=".png,.jpeg">
+      </div>
+    </div>
+    <div id="line"></div>
+    <input type="submit" value="Submit" class="btn col-sm-2" id="submitBtn">
+  </form>
 </div>
-      
