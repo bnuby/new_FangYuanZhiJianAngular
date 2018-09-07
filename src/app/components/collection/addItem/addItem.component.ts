@@ -48,34 +48,6 @@ export class AddItemComponent implements OnInit {
       }
     })
 
-    function collectionName($scope) {
-      $scope.name = this.myCollectionsName
-    }
-
-    // $('#model-form').submit((e) => {
-    //   e.preventDefault()
-    //   var data_string = $('#model-form').serialize()
-    //   let formData = new FormData($("#model-form")[0])
-    //   console.log($(data_string))
-      // $.ajax({
-      //   type: "POST",
-      //   dataType: "json",
-      //   url: `${host}/items/`,
-      //   success: (data) => {
-      //     let status = data.status
-      //     let collections = data.msg
-      //     if (status) {
-      //       this.myCollectionsName = collections.name
-      //       // console.log(myCollectionsName)
-      //     } else {
-      //       // console.log(collections)
-      //     }
-      //   },
-      //   failure: function() {
-      //     alert("Error Loading")
-      //   }
-      // })
-    // })
     $('#model-form').submit((e) => {
       e.preventDefault()
       let formdata = new FormData($('#model-form')[0])

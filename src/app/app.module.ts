@@ -11,6 +11,7 @@ import { DetailComponent } from 'src/app/components/collection/detail/detail.com
 import { UserComponent } from 'src/app/components/user/user.component';
 import { EditComponent } from 'src/app/components/collection/edit/edit.component';
 import { AddItemComponent } from 'src/app/components/collection/addItem/addItem.component';
+import { AuthorComponent } from 'src/app/components/collection/author/author.component';
 import { SearchComponent } from 'src/app/components/search/search.component';
 import { RegisterComponent } from 'src/app/components/register/register.component';
 
@@ -24,7 +25,8 @@ import { RegisterComponent } from 'src/app/components/register/register.componen
     EditComponent,
     AddItemComponent,
     SearchComponent,
-    RegisterComponent
+    RegisterComponent,
+    AuthorComponent
    ],
   imports: [
     BrowserModule,

@@ -13,6 +13,7 @@ export class DetailComponent implements OnInit {
   user_id = null;
   collection_id = null
   hashtags = []
+  author_id = null
 
   constructor(private router: Router) {}
 
@@ -45,11 +46,13 @@ export class DetailComponent implements OnInit {
       dataType: "json",
       url: `${host}/collections/${this.collection_id}`,
       success: data => {
-        var collection = data.msg;
-        var author_id = collection.author_id;
+        var collection = data.msg
+        var author_id = collection.author_id
 
-        this.user_id = collection.user_id;
+        this.author_id = author_id
+        this.user_id = collection.user_id
         this.hashtags = collection.tags
+
         document.getElementById("collectionDescription").innerHTML =
           collection.description;
         document.getElementById("collectionName").innerHTML = collection.name;
@@ -118,6 +121,10 @@ export class DetailComponent implements OnInit {
 
   addModel() {
     this.router.navigate(['/collection/addItem'], {queryParams: {collection_id: this.collection_id}});
+  }
+
+  authorPage() {
+    this.router.navigate(['/author'], {queryParams: {author_id: this.author_id}});
   }
 
   checkUser() {
