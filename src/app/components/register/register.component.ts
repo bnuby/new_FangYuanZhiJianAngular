@@ -17,23 +17,24 @@ export class RegisterComponent implements OnInit {
     }
 
     documentReady() {
-        
+
+      $('#register-form').submit(e => {
+        e.preventDefault();
+        let formData = new FormData($("#register-form")[0]);
+        $.ajax ({
+            url: `${host}/users/`,
+            method: "POST",
+            data: formData,
+            contentType: false,
+            processData: false,
+            dataType: "json",
+            cache: false,
+            success: (data) => {
+              swal("Register Successful!")
+            }
+        })
+      })
+
     }
 }
 
-$('#register-form').submit(e => {
-    e.preventDefault();
-    let formData = new FormData($("#register-form")[0]);
-    $.ajax ({
-        url: `${host}/users/`,
-        method: "POST",
-        data: formData,
-        contentType: false,
-        processData: false,
-        dataType: "json",
-        cache: false,
-        success: (data) => {
-            swal("Register Successful!")
-        }
-    })
-})
