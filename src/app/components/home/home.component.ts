@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
   newestCollections = [];
   mostViewCollections = [];
   mostDownloadCollections = [];
+  topDownloadCollectionsId = [];
+  topDownloadCollectionName = []
 
   constructor(private router: Router) {}
 
@@ -21,6 +23,51 @@ export class HomeComponent implements OnInit {
   }
 
   documentReady() {
+    //get top download for carousel image
+    $.getJSON(`${host}/collections/download/3/0`).done(data => {
+      let status = data.status
+      let topDownload = data.msg
+      let imgHost = `${host}/collections/images`
+      var inner_html = ""
+      if (status) {
+        topDownload.forEach(collection => {
+          this.topDownloadCollectionsId.push(collection.id)
+          this.topDownloadCollectionName.push(collection.name)
+        })
+        inner_html = inner_html +
+        `<div class="carousel-item active">\
+          <a (click)="goToCollectionDetail(${this.topDownloadCollectionsId[0]})">\
+            <img class="carousel-image" src="${imgHost}/${this.topDownloadCollectionsId[0]}" alt="First slide"\
+            style="width: 100%; height: 400px; object-fit: cover;">\
+            <div class="carousel-caption">\
+              <h3 style="background: rgba(0, 0, 0 , 0.4); padding: 10px 20px 10px 20px;">${this.topDownloadCollectionName[0]}</h3>\
+            </div>\
+          </a>\
+        </div>\
+        <div class="carousel-item">\
+          <a (click)="goToCollectionDetail(${this.topDownloadCollectionsId[1]})">\
+            <img class="carousel-image" src="${imgHost}/${this.topDownloadCollectionsId[1]}" alt="Second slide"\
+            style="width: 100%; height: 400px; object-fit: cover;">\
+            <div class="carousel-caption">\
+              <h3 style="background: rgba(0, 0, 0 , 0.4); padding: 10px 20px 10px 20px;">${this.topDownloadCollectionName[1]}</h3>\
+            </div>\
+          </a>\
+        </div>\
+        <div class="carousel-item">\
+          <a (click)="goToCollectionDetail(${this.topDownloadCollectionsId[2]})">\
+            <img class="carousel-image" src="${imgHost}/${this.topDownloadCollectionsId[2]}" alt="Third slide"\
+            style="width: 100%; height: 400px; object-fit: cover;">\
+            <div class="carousel-caption">\
+              <h3 style="background: rgba(0, 0, 0 , 0.4); padding: 10px 20px 10px 20px;">${this.topDownloadCollectionName[2]}</h3>\
+            </div>\
+          </a>\
+        </div>`
+        $('#carousel-image-container').append(inner_html)
+      } else {
+        console.log(data.msg);
+      }
+    });
+
     console.log("here");
     // normal
     $.getJSON(`${host}/collections/10/0`).done(data => {
