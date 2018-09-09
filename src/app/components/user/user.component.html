@@ -12,8 +12,7 @@
         <h5 id='author_description'></h5>
       </div>
 
-      <div class="col-sm-4" id="infoBox">
-      </div>
+      <!-- <div class="col-sm-4" id="infoBox"></div> -->
     </div>
   </div>
 </section>
@@ -37,7 +36,7 @@
     <div class="line"></div>
     <div class="tab-content">
       <div id="myCollections" class="tab-pane fade in active show">
-        <div id="collection" class='col-lg-3 col-md-4 col-sm-8 col-xs-6' *ngFor="let collection of myCollections">
+        <div id="collection" class='col-lg-3 col-md-4' *ngFor="let collection of myCollections">
           <div class='card shadow bg-white rounded'>
             <a (click)="goToCollectionDetail(collection.id)" id='collectionLink'>
               <img class="card-img-top" src='{{host}}/collections/images/{{ collection.id }}'>

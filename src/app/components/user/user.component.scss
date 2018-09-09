@@ -32,6 +32,10 @@ html, body {
   margin-bottom: 5px;
 }
 
+#collection {
+  display: inline-block;
+}
+
 .userCollection {
   margin-top: 3%;
 }
@@ -67,6 +71,7 @@ a {
 .card {
   border-width: 1px;
   border-color: #cd162d;
+  margin-bottom: 20px;
 }
 
 .control-label {
