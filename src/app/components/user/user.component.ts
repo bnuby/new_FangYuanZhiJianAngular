@@ -13,11 +13,13 @@ export class UserComponent implements OnInit {
 
   user_id = null
   myCollections = []
+  host = null
 
   constructor(private router: Router, private cdRef:ChangeDetectorRef) {}
 
   ngOnInit() {
     console.log("loaded")
+    this.host = host
     this.documentReady()
   }
 
