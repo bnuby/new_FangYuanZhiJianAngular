@@ -96,7 +96,7 @@ export class DetailComponent implements OnInit {
             let msg = data.msg;
             if (status) {
               console.log(msg);
-              location.href = "/user.html";
+              this.router.navigate(['/user']);
             } else {
               console.log(msg);
             }
@@ -124,7 +124,7 @@ export class DetailComponent implements OnInit {
   }
 
   authorPage() {
-    this.router.navigate(['/author'], {queryParams: {author_id: this.author_id}});
+    this.router.navigate(['/collection/author/detail'], {queryParams: {author_id: this.author_id}});
   }
 
   checkUser() {

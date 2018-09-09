@@ -8,8 +8,10 @@ import { SearchComponent } from 'src/app/components/search/search.component';
 import { DetailComponent } from 'src/app/components/collection/detail/detail.component'
 import { EditComponent } from 'src/app/components/collection/edit/edit.component'
 import { AddItemComponent } from 'src/app/components/collection/addItem/addItem.component'
-import { AuthorComponent } from 'src/app/components/collection/author/author.component'
 import { UserGuard } from 'src/app/guards/user/user.guard'
+
+import { DetailComponent as AuthorDetail } from 'src/app/components/collection/author/detail/detail.component';
+import { AddAuthorComponent } from 'src/app/components/collection/author/add-author/add-author.component';
 
 
 const appRoutes: Routes = [
@@ -20,8 +22,9 @@ const appRoutes: Routes = [
   { path: 'collection/detail', component: DetailComponent},
   { path: 'collection/edit', component: EditComponent, canActivate:[UserGuard]},
   { path: 'collection/addItem', component: AddItemComponent, canActivate:[UserGuard]},
-  { path: 'search/:searchText', component: SearchComponent },
-  { path: 'author', component: AuthorComponent }
+  { path: 'collection/author/detail', component: AuthorDetail},
+  { path: 'collection/author/addAuthor', component: AddAuthorComponent},
+  { path: 'search/:searchText', component: SearchComponent }
 ]
 
 @NgModule({
@@ -29,4 +32,3 @@ const appRoutes: Routes = [
   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
-

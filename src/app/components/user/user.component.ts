@@ -13,6 +13,7 @@ export class UserComponent implements OnInit {
 
   user_id = null
   myCollections = []
+  myAuthors = []
   host = null
 
   constructor(private router: Router, private cdRef:ChangeDetectorRef) {}
@@ -36,6 +37,8 @@ export class UserComponent implements OnInit {
     this.createCollection(id)
     console.log(id)
     if (id != null) {
+
+      // Get Collection
       $.ajax({
         type: "GET",
         dataType: "json",
@@ -56,12 +59,33 @@ export class UserComponent implements OnInit {
         }
       })
 
+      // Get Authors
+      $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: `${host}/users/authors/${id}`,
+        success: (data) => {
+          let status = data.status
+          let authors = data.msg
+          if (status) {
+            authors.some(author => {
+              this.myAuthors.push(author)
+            })
+          } else {
+            console.log(authors)
+          }
+        },
+        failure: function() {
+          alert("Error Loading")
+        }
+      })
+
       $.getJSON(`${host}/users/info/${id}`).done(data => {
         let status = data.status
         let msg = data.msg
         console.log(data)
         if (status) {
-          $("#name")[0].innerHTML = `${msg.first_name} ${msg.last_name} ( ${msg.username} )`
+          $("#name")[0].innerHTML = `${msg.first_name} ${msg.last_name}`
           console.log(msg.username)
           if(msg.profile_picture == "") {
             $('#profilePicture').attr('src', "../../../assets/img/logo.png")
@@ -123,8 +147,8 @@ export class UserComponent implements OnInit {
         }
       })
     })
-    
-  
+
+
     $('#createNewCollection').submit((e) => {
       e.preventDefault()
       let formdata = new FormData($('#createNewCollection')[0])
@@ -155,6 +179,14 @@ export class UserComponent implements OnInit {
 
   goToCollectionDetail(collection_id) {
     this.router.navigate(['/collection/detail'], { queryParams: {id: collection_id}})
+  }
+
+  goToAuthorDetail(author_id) {
+    this.router.navigate(['/collection/author/detail'], { queryParams: {author_id: author_id}})
+  }
+
+  goToAddAuthor(author_id) {
+    this.router.navigate(['/collection/author/addAuthor'])
   }
 
   // addNewModelRequest() {

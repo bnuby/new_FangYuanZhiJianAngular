@@ -24,7 +24,7 @@ export class AddItemComponent implements OnInit {
   }
 
   documentReady(collection_id) {
-    
+
     let id = sessionStorage.getItem("id")
     this.user_id = id
     this.collectionId = collection_id

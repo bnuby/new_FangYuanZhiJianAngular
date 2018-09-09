@@ -2,6 +2,7 @@ import * as $ from "jquery";
 import { Router } from "@angular/router";
 import { Component, OnInit } from "@angular/core";
 import { host } from "src/app/services/server.service";
+import { jsonArrayToString } from "src/app/components/share";
 import swal from "sweetalert"
 @Component({
     selector: "app-register",
@@ -30,7 +31,17 @@ export class RegisterComponent implements OnInit {
             dataType: "json",
             cache: false,
             success: (data) => {
-              swal("Register Successful!")
+              let status = data.status
+              console.log(data)
+              if (!status) {
+                if (typeof(data[0]) == "string") {
+                  swal(data[0])
+                } else {
+                  swal(jsonArrayToString(data))
+                }
+              } else {
+                swal("Register Successful!")
+              }
             }
         })
       })

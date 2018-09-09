@@ -1,0 +1,44 @@
+@import "~bootstrap/scss/bootstrap-grid.scss";
+
+#authorContent {
+  background-color: aliceblue;
+  margin-top: 10px;
+
+  @include media-breakpoint-up(sm) {
+    & {
+      padding: 20px;
+      border-radius: 2vw;
+      margin-bottom: 5vh;
+    }
+
+    &>div:first-child {
+      &>label {
+        text-align: center;
+      }
+      &>img {
+        width: 20vw;
+        height: 20vw;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    &>div:first-child {
+      border-right: 1px black solid;
+    }
+  }
+
+  @include media-breakpoint-down(sm) {
+
+    &>div {
+      text-align: center;
+      &>img {
+      width: 40vw;
+      height: 40vw;
+      }
+    }
+    &>div:first-child {
+      margin: 2vh 0vh 1vh;
+    }
+  }
+}
