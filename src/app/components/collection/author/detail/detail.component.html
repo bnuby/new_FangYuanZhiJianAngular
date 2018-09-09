@@ -1,0 +1,42 @@
+<div class="container">
+  <div id="authorContent" class="row">
+    <div class="col-12 col-md-4">
+      <img class="col-12 m-auto" [src]="photo_url" alt="">
+    </div>
+    <div id="name" class="col-12 col-md-8 m-auto">
+      <label class="col-4">Name: </label>
+      <span class="col-8">{{ this.name }}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div id="description" class="col-12">
+      <label class="col-4">Description: </label>
+      <span class="col-8">{{ this.description }}</span>
+    </div>
+  </div>
+  <div>
+  <div class="btn-toolbar mb-4" role="toolbar" aria-label="">
+    <h3 class="d-md-block col-auto col-md-12">管理</h3>
+    <div class="btn-group ml-md-4" role="group" aria-label="">
+      <button type="button" class="btn btn-danger glyphicon glyphicon-trash" (click)="deleteAuthorAlert()"></button>
+      <button type="button" class="btn btn-info glyphicon glyphicon-edit"(click)="goToEditPage()"></button>
+    </div>
+  </div>
+    <h2 id="CollectionsTitle">我的模型</h2>
+
+    <div class="card-columns">
+      <div id="authorCollection" (click)="goToCollection(collection.id)" class="card" *ngFor="let collection of authorCollections">
+        <img class="card-img-top" [src]="collection.image_url" alt="Card image cap">
+        <div class="card-body">
+          <h4 class="card-title">{{ collection.name }}</h4>
+          <p class="card-text">{{ collection.item_ids.length }} 件模型</p>
+        </div>
+      </div>
+
+      <div class="w-100 d-flex" style="height:20vh;" *ngIf="authorCollections.length == 0">
+        <h4 class="text-secondary m-auto">無作品集</h4>
+      </div>
+    </div>
+
+  </div>
+</div>
