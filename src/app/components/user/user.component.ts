@@ -14,11 +14,13 @@ export class UserComponent implements OnInit {
   user_id = null
   myCollections = []
   myAuthors = []
+  host = null
 
   constructor(private router: Router, private cdRef:ChangeDetectorRef) {}
 
   ngOnInit() {
     console.log("loaded")
+    this.host = host
     this.documentReady()
   }
 
@@ -88,6 +90,7 @@ export class UserComponent implements OnInit {
           if(msg.profile_picture == "") {
             $('#profilePicture').attr('src', "../../../assets/img/logo.png")
           } else {
+            //this got some problem, author != user, need to add author option
             $('#profilePicture').attr('src', `${host}/users/get_pic/${id}`)
           }
         } else {
