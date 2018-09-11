@@ -29,6 +29,30 @@ export class AddItemComponent implements OnInit {
     this.user_id = id
     this.collectionId = collection_id
     console.log(this.user_id)
+
+    $('#type-selection').change((e) => {
+      $('#model-upload').attr('disabled', false)
+      switch (e.target.value) {
+        case 'image':
+          $('#model-upload').attr('accept', '.jpg,.jpeg,.png')
+          $('#model-upload').attr('name', 'image')
+        break
+
+        case 'model':
+          $('#model-upload').attr('accept', '.scn, .zip')
+          $('#model-upload').attr('name', 'model')
+          break
+
+        case 'video':
+          $('#model-upload').attr('accept', '.mp4')
+          $('#model-upload').attr('name', 'video')
+          break
+
+        default:
+          $('#model-upload').attr('disabled', true)
+      }
+    })
+
     $.ajax({
       type: "GET",
       dataType: "json",

@@ -4,57 +4,146 @@
   </div>
 </div>
 <div class="container">
-  <form class="form-horizontal" id="update-field" enctype="multipart/form-data">
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="name">Title</label>
-      <div class="col-sm-10">
-        <input class="form-control" type="text" name="name" id="collectionName" autocomplete="off" aria-describedby="name">
+<!-- Tab -->
+<ul class="nav nav-pills nav-justified" id="user-nav">
+    <li class="nav-item active" aria-expanded="true">
+      <a class="nav-link active" data-toggle="tab" href="#editCollection">編輯作品集</a>
+    </li>
+    <li class="nav-item" aria-expanded="false">
+      <a class="nav-link" data-toggle="tab" href="#manageItem">編輯模型</a>
+    </li>
+  </ul>
+  <div class="line"></div>
+  <div class="tab-content">
+
+    <!-- My Edit Collection -->
+    <div id="editCollection" class="tab-pane fade in active show">
+      <form class="form-horizontal" id="update-field" enctype="multipart/form-data">
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name">Title</label>
+          <div class="col-sm-10">
+            <input class="form-control" type="text" name="name" id="collectionName" autocomplete="off" aria-describedby="name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="type">Description</label>
+          <div class="col-sm-10">
+            <textarea class="form-control" name="description" id="collectionDescription" rows="5" placeholder="Tell us about your collection."></textarea>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="privacy">Privacy</label>
+          <div class="col-sm-10">
+            <div id="radio-privacy">
+              <input type="radio" name="privacy" value="0" checked>
+              <span>Public</span>
+              <input type="radio" name="privacy" value="1">
+              <span>Private</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="name">Category</label>
+          <div class="col-sm-10">
+            <select class="form-control" name="type" id="collectionCategory">
+              <option value="" selected disabled>Please select one of the category</option>
+              <option>Business</option>
+              <option>Entertainment</option>
+              <option>Design</option>
+              <option>Life</option>
+              <option>Education</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="control-label col-sm-2" for="image">Thumbnail</label>
+          <div class="col-sm-10" style="display: flex;">
+            <img class="col-sm-4 d-inline" id='preview-image' style="height: 150px; object-fit: cover; border: 0.5px solid black; padding: 2px; margin-right: 20px;" src=""
+              alt="">
+            <input type="file" style="margin: auto 0" name="image" id="file" placeholder="image"
+              aria-describedby="image" accept=".png,.jpeg">
+          </div>
+        </div>
+        <div id="line"></div>
+        <input type="submit" Value="Submit" class="btn col-sm-2" id="submitBtn">
+      </form>
+    </div>
+
+
+    <!-- create collection -->
+    <div id="createCollection" class="tab-pane fade">
+      <div class="upload-field">
+        <form class="form-horizontal" id="createNewCollection" enctype="multipart/form-data">
+          <div id="hidden_form"></div>
+          <div class="form-group">
+            <label class="control-label col-4 col-sm-2" for="name">Title</label>
+            <div class="col-sm-10">
+              <input class="form-control" type="text" name="name" id="collectionName" required autocomplete="off" aria-describedby="name" placeholder="What's the title of your collection?">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-4 col-sm-2" for="type">Description</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" name="description" id="collectionDescription" rows="5" required placeholder="Tell us about your collection."></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-4 col-sm-2" for="privacy">Privacy</label>
+            <div class="col-sm-10">
+              <div id="radio-privacy">
+                <input type="radio" name="privacy" value="0" checked>
+                <span>Public</span>
+                <input type="radio" name="privacy" value="1">
+                <span>Private</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-4 col-sm-2" for="name">Category</label>
+            <div class="col-12 col-lg-10">
+              <select class="form-control" name="type" id="collectionCategory" required>
+                <option value="" selected disabled>Please select one of the category</option>
+                <option>Business</option>
+                <option>Entertainment</option>
+                <option>Design</option>
+                <option>Life</option>
+                <option>Education</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-4 col-sm-2" for="image">Thumbnail</label>
+            <div class="col-sm-10" style="display: flex;">
+              <input type="file" style="margin: auto 0" name="image" id="file" required placeholder="image"
+                aria-describedby="image" accept=".png,.jpeg">
+            </div>
+          </div>
+          <div class="line"></div>
+          <input type="submit" Value="Submit" class="btn col-4 col-sm-2" id="submitBtn">
+        </form>
       </div>
     </div>
 
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="type">Description</label>
-      <div class="col-sm-10">
-        <textarea class="form-control" name="description" id="collectionDescription" rows="5" placeholder="Tell us about your collection."></textarea>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="privacy">Privacy</label>
-      <div class="col-sm-10">
-        <div id="radio-privacy">
-          <input type="radio" name="privacy" value="0" checked>
-          <span>Public</span>
-          <input type="radio" name="privacy" value="1">
-          <span>Private</span>
+    <!-- Manage Item -->
+    <div id="manageItem" class="tab-pane fade">
+      <div class="card-columns">
+        <div class="card" *ngFor="let item of myItems" (click)="goToItem(item.id)">
+            <img class="card-img-top" *ngIf="item.type == 'image'" [src]="item.image_url" alt="">
+            <img class="card-img-top" *ngIf="item.type == 'music'" src="assets/img/musicicon.png" alt="">
+            <img class="card-img-top" *ngIf="item.type == 'model' || item.type == '3d' || item.type == '3D'" src="assets/img/videoicon.png" alt="">
+            <div class="card-body">
+            <h4 class="card-title">{{ item.name }}</h4>
+            <p class="card-text">{{ item.description }}</p>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="name">Category</label>
-      <div class="col-sm-10">
-        <select class="form-control" name="type" id="collectionCategory">
-          <option value="" selected disabled>Please select one of the category</option>
-          <option>Business</option>
-          <option>Entertainment</option>
-          <option>Design</option>
-          <option>Life</option>
-          <option>Education</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="image">Thumbnail</label>
-      <div class="col-sm-10" style="display: flex;">
-        <img class="col-sm-4 d-inline" id='preview-image' style="height: 150px; object-fit: cover; border: 0.5px solid black; padding: 2px; margin-right: 20px;" src=""
-          alt="">
-        <input type="file" style="margin: auto 0" name="image" id="file" placeholder="image"
-          aria-describedby="image" accept=".png,.jpeg">
-      </div>
-    </div>
-    <div id="line"></div>
-    <input type="submit" Value="Submit" class="btn col-sm-2" id="submitBtn">
-  </form>
 </div>

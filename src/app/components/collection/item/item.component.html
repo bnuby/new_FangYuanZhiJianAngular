@@ -1,0 +1,47 @@
+<!-- Image, Star Rating, Share, Title -->
+<section class="modelDetails">
+    <div class="container">
+      <div class="row">
+        <div id="title" class="col-12 mb-3">
+          <div id="itemImage">
+            <img class="col-12" [src]="image_url">
+            <div id="itemName" class="mx-auto">{{ name }}</div>
+          </div>
+
+        </div>
+        <div id='bottom' class="col-12">
+
+          <!-- Details -->
+          <section class="metaData">
+              <h5>工具</h5>
+              <div class="line"></div>
+              <div id="toolbar" class="mb-3">
+                <button class="btn btn-Submit glyphicon glyphicon-plus" data-hover="tooltip" data-tooltip-content="AddModel" data-tooltip-delay="500" aria-describedby="en" (click)="addModel()" id="addBtn"></button>
+                <button class="btn btn-warning glyphicon glyphicon-edit" data-hover="tooltip" data-tooltip-content="Edit" data-tooltip-delay="500" aria-describedby="en" (click)="editCollections()"></button>
+                <button class="btn btn-danger glyphicon glyphicon-trash" data-hover="tooltip" data-tooltip-content="Delete" data-tooltip-delay="500" aria-describedby="en" (click)="deleteItemAlert()"></button>
+              </div>
+
+            <h5>Description</h5>
+            <div class="line"></div>
+            <div class="content mb-3" id="collectionDescription">{{ description }}</div>
+            <h5>Type</h5>
+            <div class="line"></div>
+            <div class="content mb-3" id="itemType">{{ type }}</div>
+            <h5>Format</h5>
+            <div class="line"></div>
+            <div class="content mb-3" id="itemFormat">{{ format }}</div>
+            <div class="TagList">
+                <h5>Hashtag</h5>
+                <div class="line"></div>
+                <span class="hashtag btn content" (click)="searchTag(hashtag)" *ngFor="let hashtag of hashtags">
+                  {{ hashtag }}
+                </span>
+                <span class="no-hashtag" *ngIf="hashtags.length == 0">
+                  No Hashtags
+                </span>
+              </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>

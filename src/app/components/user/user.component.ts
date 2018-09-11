@@ -69,6 +69,7 @@ export class UserComponent implements OnInit {
           let authors = data.msg
           if (status) {
             authors.some(author => {
+              author.image_url = `${host}/authors/image/${id}`
               this.myAuthors.push(author)
             })
           } else {

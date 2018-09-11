@@ -10,7 +10,10 @@ import { LoginComponent } from 'src/app/components/login/login.component';
 import { DetailComponent } from 'src/app/components/collection/detail/detail.component';
 import { UserComponent } from 'src/app/components/user/user.component';
 import { EditComponent } from 'src/app/components/collection/edit/edit.component';
+
+import { ItemComponent } from './components/collection/item/item.component';
 import { AddItemComponent } from 'src/app/components/collection/addItem/addItem.component';
+import { EditComponent as ItemEditComponent } from './components/collection/item/edit/edit.component';
 
 import { AuthorComponent } from 'src/app/components/collection/author/author.component';
 import { DetailComponent as AuthorDetail } from 'src/app/components/collection/author/detail/detail.component';
@@ -32,7 +35,9 @@ import { AddAuthorComponent } from './components/collection/author/add-author/ad
     RegisterComponent,
     AuthorComponent,
     AuthorDetail,
-    AddAuthorComponent
+    AddAuthorComponent,
+    ItemComponent,
+    ItemEditComponent
    ],
   imports: [
     BrowserModule,

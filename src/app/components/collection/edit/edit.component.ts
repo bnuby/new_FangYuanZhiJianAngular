@@ -10,6 +10,8 @@ import * as $ from 'jquery';
 })
 export class EditComponent implements OnInit {
 
+  myItems = []
+
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -39,6 +41,10 @@ export class EditComponent implements OnInit {
 
           let filename = collection.image_path.split('/').last
           $('#preview-image').attr('src', `${host}/collections/images/${collection_id}`)
+
+          collection.item_ids.forEach( (id) => {
+            this.getItem(id)
+          })
 
         } else {
           console.log(collection)
@@ -82,6 +88,30 @@ export class EditComponent implements OnInit {
       })
 
     })
+  }
+
+  getItem(id) {
+    $.ajax({
+      url: `${host}/items/${id}`,
+      type: "GET",
+      success: (data) => {
+        let status = data.status
+        let msg = data.msg
+        if (status) {
+          if (msg.type == "image")
+            msg.image_url = `${host}/items/image/${id}`
+          console.log(msg)
+          this.myItems.push(msg)
+          // return msg
+        } else {
+          swal(msg)
+        }
+      }
+    })
+  }
+
+  goToItem(id) {
+    this.router.navigate(['collection', 'item', id])
   }
 
 }
