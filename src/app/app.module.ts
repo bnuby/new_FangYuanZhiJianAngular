@@ -15,6 +15,9 @@ import { ItemComponent } from './components/collection/item/item.component';
 import { AddItemComponent } from 'src/app/components/collection/addItem/addItem.component';
 import { EditComponent as ItemEditComponent } from './components/collection/item/edit/edit.component';
 
+import { DetailComponent as ItemDetailComponent } from 'src/app/components/collection/item/detail/detail.component';
+import { EditComponent as ItemDetailEditComponent } from 'src/app/components/collection/item/detail/edit/edit.component';
+
 import { AuthorComponent } from 'src/app/components/collection/author/author.component';
 import { DetailComponent as AuthorDetail } from 'src/app/components/collection/author/detail/detail.component';
 
@@ -37,7 +40,9 @@ import { AddAuthorComponent } from './components/collection/author/add-author/ad
     AuthorDetail,
     AddAuthorComponent,
     ItemComponent,
-    ItemEditComponent
+    ItemEditComponent,
+    ItemDetailComponent,
+    ItemDetailEditComponent
    ],
   imports: [
     BrowserModule,

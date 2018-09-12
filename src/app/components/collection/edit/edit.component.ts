@@ -18,6 +18,14 @@ export class EditComponent implements OnInit {
 
   ngOnInit() {
     let collection_id = this.route.snapshot.queryParams['collection_id']
+    this.collection_id = collection_id
+
+    this.editCollectionForm(collection_id)
+    this.addItemForm()
+    this.historyReplace()
+  }
+
+  historyReplace() {
     let tab = this.route.snapshot.queryParams['tab']
 
     console.log(tab)
@@ -28,8 +36,15 @@ export class EditComponent implements OnInit {
       $(`a[href="#${tab}"]`).addClass('active')
     }
 
-    this.collection_id = collection_id
+    $('.nav-item').click((e) => {
+      let tabAttr = e.target.getAttribute('href').replace('#', '')
+      console.log(e.target)
+      let newLocation = location.pathname + "?collection_id=" + this.collection_id + "&tab=" + tabAttr
+      this.location.replaceState(newLocation)
+    })
+  }
 
+  editCollectionForm(collection_id) {
     // Set Default Collection Value
     $.ajax({
       url: `${host}/collections/${collection_id}`,
@@ -64,7 +79,7 @@ export class EditComponent implements OnInit {
       }
     })
 
-    $('input[type=file]').change(function(e) {
+    $('#editCollection input[type=file]').change(function(e) {
       let file = this.files[0]
       let reader = new FileReader()
       reader.onload = (e) => {
@@ -99,6 +114,34 @@ export class EditComponent implements OnInit {
         }
       })
     })
+  }
+
+  addItemForm() {
+    let parent = "#addItem"
+
+    $(`${parent} #type-selection`).change((e) => {
+      console.log("change")
+      $(`${parent} #model-upload`).attr('disabled', false)
+      switch (e.target.value) {
+        case 'image':
+          $(`${parent} #model-upload`).attr('accept', '.jpg,.jpeg,.png')
+          $(`${parent} #model-upload`).attr('name', 'image')
+        break
+
+        case 'model':
+          $(`${parent} #model-upload`).attr('accept', '.scn, .zip')
+          $(`${parent} #model-upload`).attr('name', 'model')
+          break
+
+        case 'video':
+          $(`${parent} #model-upload`).attr('accept', '.mp4')
+          $(`${parent} #model-upload`).attr('name', 'video')
+          break
+
+        default:
+          $(`${parent} #model-upload`).attr('disabled', true)
+      }
+    })
 
     $('#addItem>form').submit((e) => {
       e.preventDefault()
@@ -126,13 +169,6 @@ export class EditComponent implements OnInit {
           }
         }
       })
-    })
-
-    $('.nav-item').click((e) => {
-      let tabAttr = e.target.getAttribute('href').replace('#', '')
-      console.log(e.target)
-      let newLocation = location.pathname + "?collection_id=" + this.collection_id + "&tab=" + tabAttr
-      this.location.replaceState(newLocation)
     })
   }
 

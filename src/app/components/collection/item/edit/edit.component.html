@@ -4,54 +4,140 @@
   </div>
 </div>
 <div class="container" id="body-content">
-  <form class="form-horizontal" role="form" enctype="multipart/form-data" id="model-form">
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="modelTitle">Title</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" name="name" id="modelTitle" placeholder="What's the title of your model?"
-          required autocomplete="off">
-      </div>
-    </div>
 
-    <!-- default are model -->
-    <div name="type" value="model"></div>
-
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="type">Type</label>
-      <div class="col-sm-10">
-        <select class="form-control" name="type" id="type-selection">
-          <option value="" selected="selected">Please select a model..</option>
-          <option value="image">Image</option>
-          <option value="video">Video</option>
-          <option value="model">Model</option>
-        </select>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="modelUpload">Model</label>
-      <div class="col-sm-10">
-        <input type="file" name="model" class="form-control-file" id="model-upload" aria-describedby="fileHelp"
-          required accept=".zip" disabled>
-        <!-- <small id="fileHelp" class="form-text text-muted">Only zipped file are allowed</small> -->
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="modelDescription">Description</label>
-      <div class="col-sm-10">
-        <textarea class="form-control" name="description" id="modelDescription" rows="5" placeholder="Tell us about your item."
-          required></textarea>
-      </div>
-    </div>
-    <div class="form-group">
-      <label class="control-label col-sm-2" for="itemHastag">Hashtags</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" name="tags" id="itemHastag" placeholder="Ex: Red, Huge, Ball"
-          autocomplete="off" required>
-      </div>
-    </div>
-
-    <input type="hidden" *ngIf="type == 'edit'" name="id" [value]="id">
+  <!-- Tab -->
+  <ul class="nav nav-pills nav-justified" id="user-nav">
+      <li class="nav-item active" aria-expanded="true">
+        <a class="nav-link active" data-toggle="tab" href="#editItem">編輯模型</a>
+      </li>
+      <li class="nav-item" aria-expanded="false">
+        <a class="nav-link" data-toggle="tab" href="#addDetail">新增解說</a>
+      </li>  
+      <li class="nav-item" aria-expanded="false">
+        <a class="nav-link" data-toggle="tab" href="#manageDetail">管理解說</a>
+      </li>
+    </ul>
     <div class="line"></div>
-    <input type="submit" Value="submit" class="btn col-sm-2" id="submitBtn">
-  </form>
+    <div class="tab-content">
+
+      <!-- My Edit Item -->
+      <div id="editItem" class="tab-pane fade in active show">
+        <form class="form-horizontal" role="form" enctype="multipart/form-data" id="editItemForm">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="modelTitle">Title</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="name" id="modelTitle" placeholder="What's the title of your model?"
+                required autocomplete="off">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="type">Type</label>
+            <div class="col-sm-10">
+              <select class="form-control" name="type" id="type-selection">
+                <option value="" selected="selected">Please select a model..</option>
+                <option value="image">Image</option>
+                <option value="video">Video</option>
+                <option value="model">Model</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="modelUpload">Model</label>
+            <div class="col-sm-10">
+              <input type="file" name="model" class="form-control-file" id="model-upload" aria-describedby="fileHelp"
+                required accept=".zip" disabled>
+              <!-- <small id="fileHelp" class="form-text text-muted">Only zipped file are allowed</small> -->
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="modelDescription">Description</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" name="description" id="modelDescription" rows="5" placeholder="Tell us about your item."
+                required></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="itemHastag">Hashtags</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" name="tags" id="itemHastag" placeholder="Ex: Red, Huge, Ball"
+                autocomplete="off" required>
+            </div>
+          </div>
+
+          <input type="hidden" *ngIf="type == 'edit'" name="id" [value]="id">
+          <div class="line"></div>
+          <input type="submit" Value="submit" class="btn col-sm-2" id="submitBtn">
+        </form>
+      </div>
+
+      <!-- Add Detail -->
+      <div id="addDetail" class="tab-pane fade">
+        <div class="upload-field">
+          <form class="form-horizontal" role="form" enctype="multipart/form-data" id="addDetailForm">
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="modelTitle">Title</label>
+              <div class="col-sm-10">
+                <input type="text" class="form-control" name="title" id="modelTitle" placeholder="What's the title of your model?"
+                  required autocomplete="off">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="modelTitle">位置</label>
+              <div class="col-sm-10">
+                <input type="number" class="form-control" name="position" id="position" placeholder="Default is 0" autocomplete="off">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="type">Type</label>
+              <div class="col-sm-10">
+                <select class="form-control" name="type" id="type-selection">
+                  <option value="" selected="selected">Please select a model..</option>
+                  <option value="image">Image</option>
+                  <option value="video">Video</option>
+                  <option value="model">Model</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="upload">Model</label>
+              <div class="col-sm-10">
+                <input type="file" name="model" class="form-control-file" id="upload" aria-describedby="fileHelp"
+                  required accept=".zip" disabled>
+                <!-- <small id="fileHelp" class="form-text text-muted">Only zipped file are allowed</small> -->
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="control-label col-sm-2" for="modelDescription">Description</label>
+              <div class="col-sm-10">
+                <textarea class="form-control" name="description" id="modelDescription" rows="5" placeholder="Tell us about your item."
+                  required></textarea>
+              </div>
+            </div>
+
+            <div class="line"></div>
+            <input type="submit" Value="submit" class="btn col-sm-2" id="submitBtn">
+          </form>
+        </div>
+      </div>
+
+      <!-- Manage Detail -->
+      <div id="manageDetail" class="tab-pane fade">
+        <div class="card-columns">
+          <div class="card" *ngFor="let detail of details" (click)="goToItemDetail(detail.id)">
+            <img class="card-img-top" *ngIf="item.type == 'image'" [src]="detail.image_url" alt="">
+            <img class="card-img-top" *ngIf="item.type == 'music'" src="assets/img/musicicon.png" alt="">
+            <img class="card-img-top" *ngIf="item.type == 'model' || item.type == '3d' || item.type == '3D'" src="assets/img/videoicon.png"
+              alt="">
+            <div class="card-body">
+              <h4 class="card-title">{{ detail.title }}</h4>
+              <!-- <p class="card-text">{{ detail.description }}</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
