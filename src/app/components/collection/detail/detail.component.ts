@@ -102,7 +102,7 @@ export class DetailComponent implements OnInit {
             }
           }
         });
-        swal("Your collection has been deleted!", {
+        swal("Your collection and items has been deleted!", {
           icon: "success"
         });
       } else {

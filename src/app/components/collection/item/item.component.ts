@@ -66,14 +66,14 @@ export class ItemComponent implements OnInit {
   private deleteItemAlert() {
     swal({
       title: "Are you sure?",
-      text: "Once deleted, you will not be able to recover this collection and models!",
+      text: "Once deleted, you will not be able to recover this item and details!",
       icon: "warning",
       buttons: ["Cancel", "Delete"],
       dangerMode: true
     }).then(willDelete => {
       if (willDelete) {
         this.deleteItem(this.id)
-        swal("Your collection has been deleted!", {
+        swal("Your item and details has been deleted!", {
           icon: "success"
         });
       } else {

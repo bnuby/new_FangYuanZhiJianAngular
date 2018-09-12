@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
 import * as $ from "jquery";
 import { host } from "src/app/services/server.service";
+import { jsonArrayToString } from "src/app/components/share"
 
 @Component({
   selector: "app-edit",
@@ -31,17 +32,7 @@ export class EditComponent implements OnInit {
   }
 
   historyReplace() {
-    let tab = this.route.snapshot.queryParams["tab"];
-
-    console.log(tab);
-    if (tab != null) {
-      $(".active").removeClass("active");
-      $(".show").removeClass("show");
-      $(`#${tab}`)
-        .addClass("active")
-        .addClass("show");
-      $(`a[href="#${tab}"]`).addClass("active");
-    }
+    this.updateTab()
 
     $(".nav-item").click(e => {
       let tabAttr = e.target.getAttribute("href").replace("#", "");
@@ -96,8 +87,14 @@ export class EditComponent implements OnInit {
           console.log(data);
           if (status) {
             console.log(msg);
-            location.href = document.referrer;
+            swal("成功新增解說")
+            let href = `${location.pathname}?type=${this.type}&tab=manageDetail`
+            this.details.push(msg)
+            this.location.replaceState(href)
+            // this.router.navigate([location.pathname], { queryParams: { type: this.type, tab: "manageDetail"} })
+            this.updateTab()
           } else {
+            swal(jsonArrayToString((msg)))
             console.log(msg);
           }
         }
@@ -157,11 +154,11 @@ export class EditComponent implements OnInit {
           }
         }
       });
-
+      console.log(this.type)
       $("#editItemForm").submit(e => {
         e.preventDefault();
-        $("input#itemHastag").val($("input#itemHastag").val.replace(" ", ","));
-        let formdata = new FormData($("#model-form")[0]);
+        $("input#itemHastag").val($("input#itemHastag").val().replace(/ /g, ","));
+        let formdata = new FormData($("#editItemForm")[0]);
         $.ajax({
           url: `${host}/items`,
           method: "PUT",
@@ -203,12 +200,27 @@ export class EditComponent implements OnInit {
           if (status) {
             if (msg.type == "image")
               msg.image_url = `${host}/details/image/${id}`;
+            
             this.details.push(msg);
           } else {
           }
         }
       });
     });
+  }
+
+  private updateTab() {
+    let tab = this.route.snapshot.queryParams["tab"];
+
+    console.log(tab);
+    if (tab != null) {
+      $(".active").removeClass("active");
+      $(".show").removeClass("show");
+      $(`#${tab}`)
+        .addClass("active")
+        .addClass("show");
+      $(`a[href="#${tab}"]`).addClass("active");
+    }
   }
 
   goToItemDetail(detail_id) {
