@@ -1,4 +1,3 @@
-import { MainClass } from "src/app/classes/main-class"
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { host } from 'src/app/services/server.service';
@@ -11,16 +10,14 @@ import * as $ from 'jquery';
   templateUrl: './edit.component.html',
   styleUrls: ['./edit.component.scss']
 })
-export class EditComponent extends MainClass implements OnInit {
+export class EditComponent implements OnInit {
 
   detail_id = null
 
   constructor( private router: Router, private route: ActivatedRoute) {
-    super(router)
    }
 
   ngOnInit() {
-    super.ngOnInit()
     this.detail_id = this.route.snapshot.params['id']
     this.editDetailForm()
     this.loadDetail()
