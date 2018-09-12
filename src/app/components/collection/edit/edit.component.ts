@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { host } from 'src/app/services/server.service'
+import swal from 'sweetalert';
 import * as $ from 'jquery';
+import { jsonArrayToString } from '../../share';
 
 @Component({
   selector: 'app-edit',
@@ -108,8 +110,10 @@ export class EditComponent implements OnInit {
           if(status) {
             console.log(msg)
             location.href = document.referrer
+            swal('成功修改作品集')
           } else {
             console.log(msg)
+            swal(jsonArrayToString(msg))
           }
         }
       })
@@ -143,9 +147,9 @@ export class EditComponent implements OnInit {
       }
     })
 
-    $('#addItem>form').submit((e) => {
+    $('#addItem form').submit((e) => {
       e.preventDefault()
-      let formData = new FormData($("#editCollection-form")[0])
+      let formData = new FormData($("#addItem form")[0])
       console.log($("#editCollection-form"))
       console.log(formData)
       $.ajax({
@@ -163,9 +167,15 @@ export class EditComponent implements OnInit {
           if(status) {
             console.log(msg)
             // location.href = document.referrer
+            swal("成功添加模型")
             location.reload()
           } else {
             console.log(msg)
+            if(typeof(msg) == 'string') {
+              swal(msg)
+            } else {
+              swal(jsonArrayToString(msg))
+            }
           }
         }
       })

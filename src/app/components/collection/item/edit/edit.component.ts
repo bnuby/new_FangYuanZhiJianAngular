@@ -1,3 +1,4 @@
+import { MainClass } from "src/app/classes/main-class"
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import { Location } from "@angular/common";
@@ -10,7 +11,8 @@ import { jsonArrayToString } from "src/app/components/share"
   templateUrl: "./edit.component.html",
   styleUrls: ["./edit.component.scss"]
 })
-export class EditComponent implements OnInit {
+
+export class EditComponent extends MainClass implements OnInit {
   id: String;
   type: String;
   details = [];
@@ -21,11 +23,14 @@ export class EditComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location
   ) {
+    super(router)
     this.id = route.snapshot.params["id"];
     this.type = route.snapshot.queryParams["type"];
   }
 
   ngOnInit() {
+    super.ngOnInit()
+
     this.addDetailFormSubmit();
     this.editSubmitForm();
     this.historyReplace();
@@ -200,7 +205,7 @@ export class EditComponent implements OnInit {
           if (status) {
             if (msg.type == "image")
               msg.image_url = `${host}/details/image/${id}`;
-            
+
             this.details.push(msg);
           } else {
           }

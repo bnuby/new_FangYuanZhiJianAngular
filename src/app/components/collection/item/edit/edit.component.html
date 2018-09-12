@@ -1,7 +1,9 @@
 <div id="page-title" >
   <div class="container">
-    <h3>{{ collectionName }} > {{ type }} Model</h3>
-  </div>
+      <!-- <h3>{{ collectionName }} > {{ type }} Model</h3> -->
+      <h3 class="navigationItem" href="collection/item/8">as{{ collectionName }}</h3>
+      <h3 class="navigationItem" href="Model"> {{ type }} Model</h3>
+    </div>
 </div>
 <div class="container" id="body-content">
 
@@ -12,7 +14,7 @@
       </li>
       <li class="nav-item" aria-expanded="false">
         <a class="nav-link" data-toggle="tab" href="#addDetail">新增解說</a>
-      </li>  
+      </li>
       <li class="nav-item" aria-expanded="false">
         <a class="nav-link" data-toggle="tab" href="#manageDetail">管理解說</a>
       </li>
@@ -79,7 +81,7 @@
             <div class="form-group">
               <label class="control-label col-sm-2" for="modelTitle">Title</label>
               <div class="col-sm-10">
-                <input type="text" class="form-control" name="title" id="modelTitle" placeholder="What's the title of your model?"
+                <input type="text" class="form-control" name="title" id="modelTitle" placeholder="What's the title of your detail?"
                   required autocomplete="off">
               </div>
             </div>
@@ -121,7 +123,7 @@
             </div>
 
             <div class="line"></div>
-            <input type="submit" Value="submit" class="btn col-sm-2" id="submitBtn">
+            <input type="submit" Value="submit" class="btn  col-sm-2" id="submitBtn">
           </form>
         </div>
       </div>
