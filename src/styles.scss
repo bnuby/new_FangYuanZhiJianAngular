@@ -13,17 +13,40 @@
   }
 }
 
+a {
+  color: #cd162d;
+}
+
+#page-title {
+    background: #0C82BC;
+
+    & h3 {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        color: white;
+    }
+}
+
+#addBtn {
+  background: #CCC401;
+}
+
+.nav-link.active {
+  color: white;
+  background: #cd162d !important;
+}
+
 .TagList {
   .hashtag {
     margin: 5px;
     padding: 5px;
     border: 1px solid red;
     border-radius: 10px;
-    color: red;
+    color: red !important;
     font-size: 15px;
 
     &:hover {
-      color: white;
+      color: white !important;
       background-color: red;
     }
 

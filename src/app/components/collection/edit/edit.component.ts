@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 import { host } from 'src/app/services/server.service'
 import * as $ from 'jquery';
 
@@ -11,14 +12,25 @@ import * as $ from 'jquery';
 export class EditComponent implements OnInit {
 
   myItems = []
+  collection_id = null
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private route: ActivatedRoute, private location: Location) { }
 
   ngOnInit() {
-    var url_string = window.location.href;
-    var url = new URL(url_string);
-    let collection_id = url.searchParams.get('collection_id')
+    let collection_id = this.route.snapshot.queryParams['collection_id']
+    let tab = this.route.snapshot.queryParams['tab']
 
+    console.log(tab)
+    if (tab != null) {
+      $('.active').removeClass('active')
+      $('.show').removeClass('show')
+      $(`#${tab}`).addClass('active').addClass('show')
+      $(`a[href="#${tab}"]`).addClass('active')
+    }
+
+    this.collection_id = collection_id
+
+    // Set Default Collection Value
     $.ajax({
       url: `${host}/collections/${collection_id}`,
       type: 'GET',
@@ -27,20 +39,20 @@ export class EditComponent implements OnInit {
         let collection = data.msg
         if (status) {
           console.log(collection)
-          $('input[name="name"]').val(collection.name)
-          $('textarea[name="description"]').val(collection.description)
+          $('#editCollection input[name="name"]').val(collection.name)
+          $('#editCollection textarea[name="description"]').val(collection.description)
 
           console.log($('input[name="privacy"]'))
           if (collection.privacy == 0) {
-            $('input[name="privacy"]')[0].checked = true
+            $('#editCollection input[name="privacy"]')[0].checked = true
           } else {
-            $('input[name="privacy"]')[1].checked = true
+            $('#editCollection input[name="privacy"]')[1].checked = true
           }
 
-          $('select').val(collection.type)
+          $('#editCollection select').val(collection.type)
 
           let filename = collection.image_path.split('/').last
-          $('#preview-image').attr('src', `${host}/collections/images/${collection_id}`)
+          $('#editCollection #preview-image').attr('src', `${host}/collections/images/${collection_id}`)
 
           collection.item_ids.forEach( (id) => {
             this.getItem(id)
@@ -86,7 +98,41 @@ export class EditComponent implements OnInit {
           }
         }
       })
+    })
 
+    $('#addItem>form').submit((e) => {
+      e.preventDefault()
+      let formData = new FormData($("#editCollection-form")[0])
+      console.log($("#editCollection-form"))
+      console.log(formData)
+      $.ajax({
+        url: `${host}/items`,
+        type: 'POST',
+        contentType: false,
+        processData: false,
+        dataType: 'json',
+        data: formData,
+        cache: false,
+        success: (data) => {
+          let status = data.status
+          let msg = data.msg
+          console.log(data)
+          if(status) {
+            console.log(msg)
+            // location.href = document.referrer
+            location.reload()
+          } else {
+            console.log(msg)
+          }
+        }
+      })
+    })
+
+    $('.nav-item').click((e) => {
+      let tabAttr = e.target.getAttribute('href').replace('#', '')
+      console.log(e.target)
+      let newLocation = location.pathname + "?collection_id=" + this.collection_id + "&tab=" + tabAttr
+      this.location.replaceState(newLocation)
     })
   }
 

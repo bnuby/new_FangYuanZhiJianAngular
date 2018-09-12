@@ -51,6 +51,14 @@ export class ItemComponent implements OnInit {
     });
   }
 
+  private editItemPage() {
+    this.router.navigate(['collection/item/', this.id, 'edit'], { queryParams: { type: 'edit' } })
+  }
+
+  private addDetailPage() {
+    this.router.navigate(['collection/item/', this.id, 'edit'])
+  }
+
   private searchTag(value) {
     this.router.navigate(['search', value], { queryParams: {isTag: true, tagOnly: true} })
   }

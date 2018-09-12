@@ -25,8 +25,10 @@ const appRoutes: Routes = [
   { path: 'collection/detail', component: DetailComponent},
   { path: 'collection/edit', component: EditComponent, canActivate:[UserGuard]},
   { path: 'collection/addItem', component: AddItemComponent, canActivate:[UserGuard]},
-  { path: 'collection/item/:id/edit', component: ItemComponent, canActivate:[UserGuard]},
+
+  { path: 'collection/item/:id/edit', component: ItemEditComponent, canActivate:[UserGuard]},
   { path: 'collection/item/:id', component: ItemComponent, canActivate:[UserGuard]},
+
   { path: 'collection/author/detail', component: AuthorDetail},
   { path: 'collection/author/addAuthor', component: AddAuthorComponent, canActivate:[UserGuard]},
   { path: 'search/:searchText', component: SearchComponent }
