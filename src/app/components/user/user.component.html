@@ -67,24 +67,25 @@
             <div class="form-group">
               <label class="control-label col-4 col-sm-2" for="name">Title</label>
               <div class="col-sm-10">
-                <input class="form-control" type="text" name="name" id="collectionName" required autocomplete="off" aria-describedby="name" placeholder="What's the title of your collection?">
+                <input class="form-control" type="text" name="name" id="collectionName" required autocomplete="off"
+                  aria-describedby="name" placeholder="What's the title of your collection?">
               </div>
             </div>
 
             <div class="form-group">
               <label class="control-label col-4 col-sm-2" for="type">Description</label>
               <div class="col-sm-10">
-                <textarea class="form-control" name="description" id="collectionDescription" rows="5" required placeholder="Tell us about your collection."></textarea>
+                <textarea class="form-control" name="description" id="collectionDescription" rows="5" required
+                  placeholder="Tell us about your collection."></textarea>
               </div>
             </div>
 
             <div class="form-group">
               <label class="control-label col-4 col-sm-2" for="Author">Author</label>
-              <select name="author_id" class="col-4 col-sm-2" id="author_select">
-                  <option value="" selected>Please Select One Author</option>
-                  <option *ngFor="let author of myAuthors" [value]="author.id">{{ author.name }}</option>
-                </select>
-              <small id="helpId" class="text-muted">Help text</small>
+              <select name="author_id" class="col-6 col-sm-4" id="author_select">
+                <option value="" selected>Please Select One Author</option>
+                <option *ngFor="let author of myAuthors" [value]="author.id">{{ author.name }}</option>
+              </select>
             </div>
 
             <div class="form-group">
@@ -128,24 +129,24 @@
 
       <!-- Manage Author -->
       <div id="manageAuthor" class="tab-pane fade">
-          <div class="btn-toolbar justify-content-end mb-2" role="toolbar" aria-label="">
-            <div class="btn-group" role="group" aria-label="">
-              <button id="addAuthor" type="button" class="btn btn-primary glyphicon glyphicon-plus" (click)="goToAddAuthor()"></button>
-            </div>
+        <div class="btn-toolbar justify-content-end mb-2" role="toolbar" aria-label="">
+          <div class="btn-group" role="group" aria-label="">
+            <button id="addAuthor" type="button" class="btn btn-primary glyphicon glyphicon-plus" (click)="goToAddAuthor()"></button>
           </div>
-          <div id="author" class='col-lg-3 col-md-4 col-sm-8 col-xs-6' *ngFor="let author of myAuthors">
-            <div class='card shadow bg-white rounded'>
-              <a (click)="goToAuthorDetail(author.id)" id='authorLink'>
-                <img class="card-img-top" [src]='author.image_url'>
-                <div class="card-body">
-                  <div class='course-name'>
-                    <h5>{{ author.name }}</h5>
-                  </div>
-                  <p> {{ author.description }}<p>
+        </div>
+        <div id="author" class='col-lg-3 col-md-4 col-sm-8 col-xs-6' *ngFor="let author of myAuthors">
+          <div class='card shadow bg-white rounded'>
+            <a (click)="goToAuthorDetail(author.id)" id='authorLink'>
+              <img class="card-img-top" [src]='author.image_url'>
+              <div class="card-body">
+                <div class='course-name'>
+                  <h5>{{ author.name }}</h5>
                 </div>
-              </a>
-            </div>
+                <p> {{ author.description }}<p>
+              </div>
+            </a>
           </div>
+        </div>
       </div>
     </div>
   </div>
