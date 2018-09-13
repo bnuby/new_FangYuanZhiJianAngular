@@ -82,10 +82,12 @@
 
             <div class="form-group">
               <label class="control-label col-4 col-sm-2" for="Author">Author</label>
-              <select name="author_id" class="col-6 col-sm-4" id="author_select">
-                <option value="" selected>Please Select One Author</option>
-                <option *ngFor="let author of myAuthors" [value]="author.id">{{ author.name }}</option>
-              </select>
+              <div class="col-10">
+                <select name="author_id" class="col-12" id="author_select">
+                  <option value="" selected>Please Select One Author</option>
+                  <option *ngFor="let author of myAuthors" [value]="author.id">{{ author.name }}</option>
+                </select>
+              </div>
             </div>
 
             <div class="form-group">
