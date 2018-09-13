@@ -57,6 +57,7 @@ export class AddAuthorComponent implements OnInit {
       e.preventDefault()
       var formData = new FormData($("#form")[0])
       if (!this.editMode) {
+        console.log('add author')
         // Add Author
         $.ajax({
           url: `${host}/authors/`,
