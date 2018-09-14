@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { host } from "src/app/services/server.service";
 import * as $ from "jquery";
+import swal from 'sweetalert';
 import { AppComponent } from "src/app/app.component";
 
 @Component({
@@ -49,6 +50,7 @@ export class LoginComponent implements OnInit {
             AppComponent.status = true;
             this.router.navigate(["user"]);
           } else {
+            swal(msg)
             console.log(msg);
           }
         }
